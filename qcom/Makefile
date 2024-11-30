@@ -36,6 +36,31 @@ pineapple-dtb-$(CONFIG_ARCH_PINEAPPLE) += \
 	$(call add-overlays, $(PINEAPPLE_BOARDS) $(APQ_PINEAPPLE_BOARDS),$(PINEAPPLE_APQ_BASE_DTB))
 pineapple-overlays-dtb-$(CONFIG_ARCH_PINEAPPLE) += $(PINEAPPLE_BOARDS) $(NOAPQ_PINEAPPLE_BOARDS) $(PINEAPPLE_BASE_DTB) $(PINEAPPLE_APQ_BASE_DTB)
 
+FPSPRING_BASE_DTB += fps.dtb fps-v2.dtb
+FPSPRING_APQ_BASE_DTB += fpsp.dtb fpsp-v2.dtb
+
+FPSPRING_BOARDS += \
+		 fps-mtp-overlay.dtbo \
+		 fps-mtp-nfc-overlay.dtbo \
+		 fps-cdp-overlay.dtbo \
+		 fps-cdp-nfc-overlay.dtbo \
+		 fps-qrd-overlay.dtbo \
+		 fps-qrd-sku2-overlay.dtbo \
+		 fps-rcm-overlay.dtbo \
+		 fps-atp-overlay.dtbo \
+		 fpsp-hdk-overlay.dtbo \
+		 fps-dpm-overlay.dtbo \
+		 fpsp-aim500-overlay.dtbo \
+		 fpsp-aim500-v2-overlay.dtbo
+
+NOAPQ_FPSPRING_BOARDS += \
+		 fps-rumi-overlay.dtbo
+
+fps-dtb-$(CONFIG_ARCH_FPSPRING) += \
+	$(call add-overlays, $(FPSPRING_BOARDS) $(NOAPQ_FPSPRING_BOARDS),$(FPSPRING_BASE_DTB))\
+	$(call add-overlays, $(FPSPRING_BOARDS) $(APQ_FPSPRING_BOARDS),$(FPSPRING_APQ_BASE_DTB))
+fps-overlays-dtb-$(CONFIG_ARCH_FPSPRING) += $(FPSPRING_BOARDS) $(NOAPQ_FPSPRING_BOARDS) $(FPSPRING_BASE_DTB) $(FPSPRING_APQ_BASE_DTB)
+
 CLIFFS_BASE_DTB += cliffs.dtb cliffs7.dtb
 CLIFFS_APQ_BASE_DTB += cliffsp.dtb cliffs7p.dtb
 
@@ -60,6 +85,11 @@ pineapple-dtb-$(CONFIG_ARCH_CLIFFS) += \
 	$(call add-overlays, $(CLIFFS_BOARDS) $(NOAPQ_CLIFFS_BOARDS),$(CLIFFS_BASE_DTB))\
 	$(call add-overlays, $(CLIFFS_BOARDS),$(CLIFFS_APQ_BASE_DTB))
 pineapple-overlays-dtb-$(CONFIG_ARCH_CLIFFS) += $(CLIFFS_BOARDS) $(NOAPQ_CLIFFS_BOARDS) $(CLIFFS_BASE_DTB) $(CLIFFS_APQ_BASE_DTB)
+
+fps-dtb-$(CONFIG_ARCH_CLIFFS) += \
+	$(call add-overlays, $(CLIFFS_BOARDS) $(NOAPQ_CLIFFS_BOARDS),$(CLIFFS_BASE_DTB))\
+	$(call add-overlays, $(CLIFFS_BOARDS),$(CLIFFS_APQ_BASE_DTB))
+fps-overlays-dtb-$(CONFIG_ARCH_CLIFFS) += $(CLIFFS_BOARDS) $(NOAPQ_CLIFFS_BOARDS) $(CLIFFS_BASE_DTB) $(CLIFFS_APQ_BASE_DTB)
 
 VOLCANO_BASE_DTB += volcano.dtb volcano6.dtb volcano6i-fp1.dtb volcano6i-fp2.dtb volcano6i-fp3.dtb volcano6i-fp4.dtb
 VOLCANO_APQ_BASE_DTB += volcano6p.dtb volcano6ip-fp1.dtb volcano6ip-fp2.dtb volcano6ip-fp3.dtb volcano6ip-fp4.dtb
@@ -92,6 +122,13 @@ pineapple-dtb-$(CONFIG_ARCH_VOLCANO) += \
 	$(call add-overlays, $(VOLCANO_BOARDS) $(NOAPQ_VOLCANO_BOARDS),$(VOLCANO_BASE_DTB))\
 	$(call add-overlays, $(VOLCANO_BOARDS), $(VOLCANO_APQ_BASE_DTB))
 pineapple-overlays-dtb-$(CONFIG_ARCH_VOLCANO) += $(VOLCANO_BOARDS) $(NOAPQ_VOLCANO_BOARDS) $(VOLCANO_BASE_DTB) $(VOLCANO_APQ_BASE_DTB)
+
+fps-dtb-$(CONFIG_ARCH_VOLCANO) += \
+	$(call add-overlays, $(VOLCANO_BOARDS) $(NOAPQ_VOLCANO_BOARDS),$(VOLCANO_BASE_DTB))\
+	$(call add-overlays, $(VOLCANO_BOARDS), $(VOLCANO_APQ_BASE_DTB))
+fps-overlays-dtb-$(CONFIG_ARCH_VOLCANO) += $(VOLCANO_BOARDS) $(NOAPQ_VOLCANO_BOARDS) $(VOLCANO_BASE_DTB) $(VOLCANO_APQ_BASE_DTB)
+
+dtb-y += $(fps-dtb-y)
 
 dtb-y += $(pineapple-dtb-y)
 

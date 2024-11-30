@@ -648,6 +648,39 @@ _platform_map = {
             {"name": "volcano6i-mtp-STSafe320-brahma-overlay.dtbo"},
         ],
     },
+    "fps": {
+        "dtb_list": [
+            {"name": "fps.dtb"},
+            {"name": "fps-v2.dtb"},
+            {
+                "name": "fpsp.dtb",
+                "apq": True,
+            },
+            {
+                "name": "fpsp-v2.dtb",
+                "apq": True,
+            },
+        ],
+        "dtbo_list": [
+            {"name": "fps-atp-overlay.dtbo"},
+            {"name": "fps-cdp-nfc-overlay.dtbo"},
+            {"name": "fps-cdp-overlay.dtbo"},
+            {"name": "fps-mtp-nfc-overlay.dtbo"},
+            {"name": "fps-mtp-overlay.dtbo"},
+            {"name": "fps-qrd-overlay.dtbo"},
+            {"name": "fps-qrd-sku2-overlay.dtbo"},
+            {"name": "fps-rcm-overlay.dtbo"},
+            {"name": "fpsp-hdk-overlay.dtbo"},
+            {"name": "fps-dpm-overlay.dtbo"},
+            {"name": "fpsp-aim500-overlay.dtbo"},
+            {"name": "fpsp-aim500-v2-overlay.dtbo"},
+            {
+                "name": "fps-rumi-overlay.dtbo",
+                "apq": False,
+            },
+        ],
+        "binary_compatible_with": ["cliffs", "volcano"],
+    },
 }
 
 def _get_dtb_lists(target, dt_overlay_supported):
