@@ -9,6 +9,9 @@ kernel_dtstree(
             "qcom/**/*.dtsi",
             "qcom/**/*.dts",
             "bindings/**/*",
+            "fps_overlay/Makefile",
+            "fps_overlay/**/*.dtsi",
+            "fps_overlay/**/*.dts",
         ],
         exclude = [
             "**/.*",
