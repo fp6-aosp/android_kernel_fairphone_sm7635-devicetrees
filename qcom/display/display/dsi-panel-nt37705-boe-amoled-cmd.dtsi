@@ -1,0 +1,166 @@
+&mdss_mdp {
+	nt37705_boe_amoled_cmd: qcom,mdss_dsi_nt37705_boe_amoled_cmd {
+		qcom,mdss-dsi-panel-name = "nt37705 amoled command mode dsi panel";
+
+		qcom,mdss-dsi-panel-type = "dsi_cmd_mode";
+		qcom,mdss-dsi-panel-physical-type = "oled";
+		qcom,mdss-dsi-virtual-channel-id = <0>;
+		qcom,mdss-dsi-stream = <0>;
+		qcom,mdss-dsi-bpp = <24>;
+		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
+		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-border-color = <0>;
+		qcom,dsi-ctrl-num = <0>;
+		qcom,dsi-phy-num = <0>;
+
+		qcom,mdss-dsi-traffic-mode = "non_burst_sync_event";
+		qcom,mdss-dsi-lane-map = "lane_map_0123";
+		qcom,mdss-dsi-bllp-eof-power-mode;
+		qcom,mdss-dsi-bllp-power-mode;
+
+		qcom,mdss-dsi-lp11-init;
+		qcom,mdss-dsi-lane-0-state;
+		qcom,mdss-dsi-lane-1-state;
+		qcom,mdss-dsi-lane-2-state;
+		qcom,mdss-dsi-lane-3-state;
+		qcom,mdss-dsi-dma-trigger = "trigger_sw";
+		qcom,mdss-dsi-mdp-trigger = "none";
+		qcom,mdss-dsi-reset-sequence = <1 10>, <0 5>, <1 10>;
+		/*qcom,mdss-dsi-panel-hdr-color-primaries = <14500 15500 32000
+				17000 15500 30000 8000 3000>;
+		qcom,mdss-dsi-panel-peak-brightness = <4200000>;
+		qcom,mdss-dsi-panel-blackness-level = <3230>;*/
+		qcom,mdss-dsi-te-pin-select = <1>;
+ 		qcom,mdss-dsi-wr-mem-start = <0x2c>;
+ 		qcom,mdss-dsi-wr-mem-continue = <0x3c>;
+ 		qcom,mdss-dsi-te-dcs-command = <1>;
+ 		qcom,mdss-dsi-te-check-enable;
+ 		qcom,mdss-dsi-te-using-te-pin;
+ 		qcom,mdss-dsi-t-clk-post = <0x9f>;//0x9f
+ 		qcom,mdss-dsi-t-clk-pre = <0x0f>;//0x0f
+
+
+
+		qcom,mdss-dsi-display-timings {
+			timing@0 {
+				qcom,mdss-dsi-cmd-mode;
+				qcom,mdss-dsi-panel-width = <1116>;
+				qcom,mdss-dsi-panel-height = <2484>;
+				qcom,mdss-dsi-h-front-porch = <100>;
+				qcom,mdss-dsi-h-back-porch = <100>;
+				qcom,mdss-dsi-h-pulse-width = <30>;
+				qcom,mdss-dsi-h-sync-skew = <0>;
+				qcom,mdss-dsi-v-back-porch = <70>;
+				qcom,mdss-dsi-v-front-porch = <70>;
+				qcom,mdss-dsi-v-pulse-width = <48>;
+
+				qcom,mdss-dsi-panel-jitter = <0x4 0x1>;//
+				qcom,mdss-dsi-panel-framerate = <60>;
+				qcom,mdss-dsi-on-command = [
+					//## Page 0
+					// Skip mode setting
+					29 01 00 00 00 00 06 F0 55 AA 52 08 00
+
+					// CMD3_Page0
+					29 01 00 00 00 00 05 FF AA 55 A5 80
+
+					// Idle_SRE_off
+					29 01 00 00 00 00 02 6F 19
+					29 01 00 00 00 00 02 F2 00
+
+
+					// SWC slew ratio
+					29 01 00 00 00 00 02 6F 1A
+					29 01 00 00 00 00 02 F4 55
+
+					// OSC2=139.6MHz
+					29 01 00 00 00 00 02 6F 11
+					29 01 00 00 00 00 03 F8 01 7F
+
+					// OSC1=139.6MHz
+					29 01 00 00 00 00 02 6F 2D
+					29 01 00 00 00 00 03 F8 01 20
+
+					// CMD3_Page1
+					29 01 00 00 00 00 05 FF AA 55 A5 81
+
+					// porch ld disable
+					29 01 00 00 00 00 02 6F 05
+					29 01 00 00 00 00 02 FE 3C
+
+					// WB_PS_Build_DLY
+					29 01 00 00 00 00 02 6F 02
+					29 01 00 00 00 00 02 F9 04
+
+					// OSC divider OPT
+					29 01 00 00 00 00 02 6F 1E
+					29 01 00 00 00 00 02 FB 0F
+
+					// BOIS clk On
+					29 01 00 00 00 00 02 6F 0F
+					29 01 00 00 00 00 02 F5 20
+
+					// tg_opt(skip_TE
+					29 01 00 00 00 00 02 6F 0D
+					29 01 00 00 00 00 02 F8 80
+
+					// CMD3_Page3
+					29 01 00 00 00 00 05 FF AA 55 A5 83
+
+					// VRAM
+					29 01 00 00 00 00 02 6F 12
+					29 01 00 00 00 00 02 FE 41
+
+					// Demura_xl1205
+					29 01 00 00 00 00 02 6F 13
+					29 01 00 00 00 00 02 FD 21
+
+					// CMD Disable
+					29 01 00 00 00 00 05 FF AA 55 A5 00
+
+					// CMD1
+					05 01 00 00 00 00 01 35
+
+					// BC Dimming oFF
+					29 01 00 00 00 00 02 53 20
+					29 01 00 00 00 00 05 2A 00 00 04 5B
+					29 01 00 00 00 00 05 2B 00 00 09 B3
+
+					// Normal GMA
+					29 01 00 00 00 00 02 26 00
+
+					// Normal DBV
+					29 01 00 00 00 00 03 51 0D BB
+
+					// idle DBV
+					29 01 00 00 00 00 02 6F 04
+					29 01 00 00 00 00 03 51 0F FE
+
+					// CMD1, DPC Temperature
+					29 01 00 00 00 00 03 81 01 19
+
+					// VESA off,IC en/decode
+					29 01 00 00 00 00 03 90 00 00
+
+					// Normal Display
+					29 01 00 00 00 00 02 2F 00
+					05 01 00 00 78 00 02 11 00
+
+					// Display On
+					05 01 00 00 16 00 02 29 00
+				];
+
+				qcom,mdss-dsi-off-command = [
+					//29 01 00 00 01 00 02 FE 00
+					05 01 00 00 01 00 02 28 00
+					05 01 00 00 64 00 02 10 00
+				];
+
+				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+			};
+		};
+	};
+};
+
+
