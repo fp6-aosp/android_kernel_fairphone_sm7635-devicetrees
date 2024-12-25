@@ -2,6 +2,7 @@
 
 /* this file is copy from volcano.dts */
 #include "volcano.dtsi"
+#include "feature/keys/volcano-fpv6-switch-key.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Volcano SoC";
