@@ -2,6 +2,7 @@
 /plugin/;
 
 #include "volcano-nfc-common-gpios.dtsi"
+#include "../samsung/volcano-nfc-samsung-sec-slsi.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. Volcano SoC";
