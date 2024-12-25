@@ -38,7 +38,8 @@
  		qcom,mdss-dsi-te-using-te-pin;
  		qcom,mdss-dsi-t-clk-post = <0x9f>;//0x9f
  		qcom,mdss-dsi-t-clk-pre = <0x0f>;//0x0f
-
+		qcom,mdss-pan-physical-width-dimension = <66>;
+		qcom,mdss-pan-physical-height-dimension = <146>;
 
 
 		qcom,mdss-dsi-display-timings {
