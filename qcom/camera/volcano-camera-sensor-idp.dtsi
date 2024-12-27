@@ -123,7 +123,7 @@
 
 &qupv3_se7_i2c {
 	status = "ok";
-	qcom,clk-freq-out = <1000000>;
+	//qcom,clk-freq-out = <1000000>; //Don't change qupv3_se7_i2c frequence in FPS, it should be 400Khz .
 	#address-cells = <1>;
 	#size-cells = <0>;
 
