@@ -449,17 +449,17 @@ key_vol_up {
 	#size-cells = <0>;
 	status = "ok";
 
-	pm8010m@8 {
-		compatible = "qcom,i2c-pmic";
+	pm8010m_chip: pm8010m@8 {
+		compatible = "qcom,i2c-pmic_test";
 		reg = <0x8>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-
+		status = "disabled";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pm8010m_active>;
 
 		pm8010-chip@900 {
-			compatible = "qcom,pm8008-chip";
+			compatible = "qcom,pm8008-chip_test";
 			reg = <0x900>;
 
 			PM8010M_EN: qcom,pm8008-chip-en {
@@ -468,14 +468,14 @@ key_vol_up {
 		};
 	};
 
-	pm8010m@9 {
-		compatible = "qcom,i2c-pmic";
+	pm8010m_ldo: pm8010m@9 {
+		compatible = "qcom,i2c-pmic_test";
 		reg = <0x9>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-
+		status = "disabled";
 		qcom,pm8010m-regulator {
-			compatible = "qcom,pm8010-regulator";
+			compatible = "qcom,pm8010-regulator_test";
 			#address-cells = <1>;
 			#size-cells = <0>;
 
@@ -551,17 +551,17 @@ key_vol_up {
 		};
 	};
 
-	pm8010n@14 {
-		compatible = "qcom,i2c-pmic";
+	pm8010n_chip: pm8010n@14 {
+		compatible = "qcom,i2c-pmic_test";
 		reg = <0x14>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-
+		status = "disabled";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pm8010n_active>;
 
 		pm8010-chip@900 {
-			compatible = "qcom,pm8008-chip";
+			compatible = "qcom,pm8008-chip_test";
 			reg = <0x900>;
 
 			PM8010N_EN: qcom,pm8008-chip-en {
@@ -570,14 +570,14 @@ key_vol_up {
 		};
 	};
 
-	pm8010n@15 {
-		compatible = "qcom,i2c-pmic";
+	pm8010n_ldo: pm8010n@15 {
+		compatible = "qcom,i2c-pmic_test";
 		reg = <0x15>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-
+		status = "disabled";
 		qcom,pm8010n-regulator {
-			compatible = "qcom,pm8010-regulator";
+			compatible = "qcom,pm8010-regulator_test";
 			#address-cells = <1>;
 			#size-cells = <0>;
 
