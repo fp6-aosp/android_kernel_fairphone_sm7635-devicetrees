@@ -2907,6 +2907,7 @@
 #include "volcano-pcie.dtsi"
 #include "ipcc-test.dtsi"
 #include "msm-arm-smmu-volcano.dtsi"
+#include "fps-pm8008.dtsi"
 #include "volcano-pmic-overlay.dtsi"
 #include "volcano-debug.dtsi"
 #include "volcano-coresight.dtsi"
