@@ -62,7 +62,7 @@
 	pinctrl-0 = <&sdc2_on>;
 	pinctrl-1 = <&sdc2_off>;
 
-	cd-gpios = <&tlmm 65 GPIO_ACTIVE_LOW>;
+	cd-gpios = <&tlmm 65 GPIO_ACTIVE_HIGH>;
 };
 
 &qupv3_se0_i2c {
