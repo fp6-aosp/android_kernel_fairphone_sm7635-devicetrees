@@ -174,14 +174,14 @@
 		cell-index = <2>;
 		compatible = "qcom,eeprom";
 		cam_vio-supply = <&L6I>;
-		cam_vdig-supply = <&L1I>;
+		cam_vdig-supply = <&L2I>;
 		cam_clk-supply = <&cam_cc_camss_top_gdsc>;
 		cam_vana-supply = <&L4I>;
 		cam_vaf-supply = <&vreg_afvdd_2p8_uw_ff>;
 		regulator-names = "cam_vio", "cam_vdig", "cam_clk", "cam_vana", "cam_vaf";
 		rgltr-cntrl-support;
-		rgltr-min-voltage = <1800000 1104000 0 2800000 2800000 >;
-		rgltr-max-voltage = <1800000 1104000 0 2800000 2800000 >;
+		rgltr-min-voltage = <1800000 1050000 0 2800000 2800000 >;
+		rgltr-max-voltage = <1800000 1150000 0 2800000 2800000 >;
 		rgltr-load-current = <3500 913200 0 91430 103000 >;
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
@@ -214,13 +214,13 @@
 		cam_vio-supply = <&L6I>; // 1.8v
 		cam_vdig-supply = <&L1I>; // 1.1v
 		cam_clk-supply = <&cam_cc_camss_top_gdsc>;
-		// cam_vana-supply = <&camera_0_avdd_ldo>; // avdd2 1.8v
+		cam_vana-supply = <&camera_0_avdd_ldo>; // avdd2 1.8v
 		cam_v_custom1-supply = <&L5I>; //avdd1 2.8v
-		regulator-names = "cam_vio", "cam_vdig", "cam_clk", /*"cam_vana",*/ "cam_v_custom1";
+		regulator-names = "cam_vio", "cam_vdig", "cam_clk", "cam_vana", "cam_v_custom1";
 		rgltr-cntrl-support;
-		rgltr-min-voltage = <1800000 1100000 0 /*1800000*/ 2800000>;
-		rgltr-max-voltage = <1800000 1100000 0 /*1800000*/ 2800000>;
-		rgltr-load-current = <3500 913200 0 /*63100*/ 91430>;
+		rgltr-min-voltage = <1800000 1100000 0 1800000 2800000>;
+		rgltr-max-voltage = <1800000 1150000 0 1800000 2800000>;
+		rgltr-load-current = <3500 913200 0 63100 91430>;
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
 		pinctrl-0 = <&cam_sensor_mclk0_active
@@ -254,14 +254,14 @@
 		actuator-src = <&actuator_wide>;
 		led-flash-src = <&led_flash_triple_rear_wide>;
 		cam_vio-supply = <&L6I>;                   /*checked pm8008 l_6p  1.8v */
-		cam_vdig-supply = <&L1I>;                  /*checked pm8008 l_1p  1.1v */
+		cam_vdig-supply = <&L2I>;                  /*checked pm8008 l_1p  1.1v */
 		cam_clk-supply = <&cam_cc_camss_top_gdsc>;
 		cam_vana-supply = <&L4I>;                  /*checked pm8008 l_4p  2.8v */
 		cam_vaf-supply = <&vreg_afvdd_2p8_uw_ff>;
 		regulator-names = "cam_vio", "cam_vdig", "cam_clk", "cam_vana","cam_vaf";
 		rgltr-cntrl-support;
-		rgltr-min-voltage = <1800000 1104000 0 2800000 2800000>;
-		rgltr-max-voltage = <1800000 1104000 0 2800000 2800000>;
+		rgltr-min-voltage = <1800000 1050000 0 2800000 2800000>;
+		rgltr-max-voltage = <1800000 1150000 0 2800000 2800000>;
 		rgltr-load-current = <3500 913200 0 91430 103000>;
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
@@ -293,8 +293,8 @@
 		cam_vaf-supply = <&vreg_afvdd_2p8_uw_ff>;
 		regulator-names = "cam_vio", "cam_vdig", "cam_clk","cam_vana","cam_vaf";
 		rgltr-cntrl-support;
-		rgltr-min-voltage = <1800000 1104000 0 2800000 2800000>;
-		rgltr-max-voltage = <1800000 1104000 0 2800000 2800000>;
+		rgltr-min-voltage = <1800000 1050000 0 2800000 2800000>;
+		rgltr-max-voltage = <1800000 1150000 0 2800000 2800000>;
 		rgltr-load-current = <1060 643640 0 82860 107140>;
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
@@ -340,8 +340,8 @@
 		cam_vaf-supply = <&vreg_afvdd_2p8_uw_ff>;
 		regulator-names = "cam_vio", "cam_vdig", "cam_clk","cam_vana","cam_vaf";
 		rgltr-cntrl-support;
-		rgltr-min-voltage = <1800000 1104000 0 2800000 2800000>;
-		rgltr-max-voltage = <1800000 1104000 0 2800000 2800000>;
+		rgltr-min-voltage = <1800000 1050000 0 2800000 2800000>;
+		rgltr-max-voltage = <1800000 1150000 0 2800000 2800000>;
 		rgltr-load-current = <1060 643640 0 82860 107140>;
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
