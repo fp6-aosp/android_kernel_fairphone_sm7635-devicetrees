@@ -2036,7 +2036,8 @@
 
 	qcom,rmtfs_sharedmem@0 {
 		compatible = "qcom,sharedmem-uio";
-		reg = <0x0 0x280000>;
+		/* FPS-51. Enlarge efs size */
+		reg = <0x0 0x600000>;
 		reg-names = "rmtfs";
 		qcom,client-id = <0x00000001>;
 	};
