@@ -87,9 +87,6 @@
 		"VA_AIF3 CAP", "VA_SWR_CLK";
 //		"EAR","HAC_RX";
 
-	/delete-node/ qcom,cdc-dmic01-gpios;
-	/delete-node/ qcom,cdc-dmic23-gpios;
-	/delete-node/ qcom,cdc-dmic45-gpios;
 };
 
 &tlmm {
