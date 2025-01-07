@@ -1,7 +1,7 @@
 #include <dt-bindings/msm-camera.h>
 
 &soc {
-	led_flash_triple_rear_wide: qcom,camera-flash1 {
+	led_flash_rear_wide: qcom,camera-flash1 {
 		cell-index = <1>;
 		compatible = "qcom,camera-flash";
 		flash-source = <&pmxr2230_flash0 &pmxr2230_flash1>;
@@ -10,16 +10,7 @@
 		status = "ok";
 	};
 
-	led_flash_triple_rear_tele: qcom,camera-flash2 {
-		cell-index = <2>;
-		compatible = "qcom,camera-flash";
-		flash-source = <&pmxr2230_flash0 &pmxr2230_flash1>;
-		torch-source = <&pmxr2230_torch0 &pmxr2230_torch1>;
-		switch-source = <&pmxr2230_switch2>;
-		status = "ok";
-	};
-
-	led_flash_triple_rear_ultrawide: qcom,camera-flash3 {
+	led_flash_rear_ultrawide: qcom,camera-flash2 {
 		cell-index = <3>;
 		compatible = "qcom,camera-flash";
 		flash-source = <&pmxr2230_flash0 &pmxr2230_flash1>;
@@ -221,7 +212,7 @@
 		sensor-position-yaw = <180>;
 		// eeprom-src = <&eeprom_uw>;
 		// actuator-src = <&actuator_triple_uw>;
-		// led-flash-src = <&led_flash_triple_rear_ultrawide>;
+		led-flash-src = <&led_flash_rear_wide>;
 		cam_vio-supply = <&L6I>; // 1.8v
 		cam_vdig-supply = <&L1I>; // 1.1v
 		cam_clk-supply = <&cam_cc_camss_top_gdsc>;
@@ -263,7 +254,7 @@
 		sensor-position-yaw = <180>;
 		eeprom-src = <&eeprom_wide>;
 		actuator-src = <&actuator_wide>;
-		led-flash-src = <&led_flash_triple_rear_wide>;
+		led-flash-src = <&led_flash_rear_ultrawide>;
 		cam_vio-supply = <&L6I>;                   /*checked pm8008 l_6p  1.8v */
 		cam_vdig-supply = <&vreg_uw_dvdd>;         /*checked pm8008 l_1p  1.1v */
 		cam_clk-supply = <&cam_cc_camss_top_gdsc>;
