@@ -70,6 +70,14 @@ key_vol_up {
 	};
 };
 
+&soc {
+	///[ADD][EMKIT]///
+	emkit_info {
+		compatible = "emkit-info,sys-emkit-info";
+		status = "ok";
+	};
+};
+
 &pmk8550_gpios {
 	pinctrl-0 = <&alt_sleep_clk_default>;
 	pinctrl-names = "default";
