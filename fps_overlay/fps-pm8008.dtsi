@@ -143,7 +143,7 @@
 				reg = <0x4600>;
 				regulator-name = "pm8008i_l7";
 				regulator-min-microvolt = <2700000>;
-				regulator-max-microvolt = <3000000>;
+				regulator-max-microvolt = <3400000>;
 				qcom,min-dropout-voltage = <312000>;
 				qcom,hpm-min-load = <0>;
 			};
