@@ -180,7 +180,7 @@
 
 &cam_cci0 {
 	/* chengming.xiang add fp6 front sensor ov13b10 */
-	actuator_wide: qcom,actuator2 {
+	actuator_ultrawide: qcom,actuator2 {
 		cell-index = <1>;
 		compatible = "qcom,actuator";
 		cci-master = <CCI_MASTER_1>;
@@ -193,7 +193,7 @@
 		status = "ok";
 	};
 
-	eeprom_wide: qcom,eeprom2 {
+	eeprom_ultrawide: qcom,eeprom2 {
 		cell-index = <2>;
 		compatible = "qcom,eeprom";
 		cam_vio-supply = <&L6I>;
@@ -237,6 +237,55 @@
 		rgltr-max-voltage = <3300000 1800000 3300000>;
 		rgltr-load-current = <100000 100000 100000>;
 	};
+
+	actuator_wide: qcom,actuator0 {
+        cell-index = <0>;
+        compatible = "qcom,actuator";
+        cci-master = <CCI_MASTER_0>;
+        cam_vaf-supply = <&L7I>;
+        regulator-names = "cam_vaf";
+        rgltr-cntrl-support;
+        rgltr-min-voltage = <3300000>;
+        rgltr-max-voltage = <3300000>;
+        rgltr-load-current = <100000>;
+        status = "ok";
+    };
+
+    eeprom_wide: qcom,eeprom0 {
+        cell-index = <0>;
+        compatible = "qcom,eeprom";
+		cam_vio-supply = <&L6I>; // 1.8v
+		cam_vdig-supply = <&L1I>; // 1.1v
+		cam_clk-supply = <&cam_cc_camss_top_gdsc>;
+		cam_vana-supply = <&camera_0_avdd_ldo>; // avdd2 1.8v
+		cam_v_custom1-supply = <&L5I>; //avdd1 2.8v
+		cam_vaf-supply = <&L7I>;
+		regulator-names = "cam_vio", "cam_vdig", "cam_clk", "cam_vana", "cam_v_custom1","cam_vaf";
+		rgltr-cntrl-support;
+		rgltr-min-voltage = <1800000 1100000 0 1800000 2800000 3300000>;
+		rgltr-max-voltage = <1800000 1150000 0 1800000 2800000 3300000>;
+		rgltr-load-current = <3500 913200 0 63100 91430 91430>;
+		gpio-no-mux = <0>;
+		pinctrl-names = "cam_default", "cam_suspend";
+		pinctrl-0 = <&cam_sensor_mclk0_active
+				 &cam_sensor_active_rst0>;
+		pinctrl-1 = <&cam_sensor_mclk0_suspend
+				 &cam_sensor_suspend_rst0>;
+		gpios = <&tlmm 83 0>,
+			<&tlmm 40 0>;
+		gpio-reset = <1>;
+		gpio-req-tbl-num = <0 1>;
+		gpio-req-tbl-flags = <1 0>;
+		gpio-req-tbl-label = "CAMIF_MCLK0",
+					"CAM_RESET0";
+		cci-master = <CCI_MASTER_0>;
+		clocks = <&camcc CAM_CC_MCLK0_CLK>;
+		clock-names = "cam_clk";
+		clock-cntl-level = "nominal";
+		clock-rates = <24000000>;
+		status = "ok";
+    };
+
 	/* Sensor main */
 	qcom,cam-sensor0 {
 		cell-index = <0>;
@@ -245,20 +294,21 @@
 		sensor-position-roll = <90>;
 		sensor-position-pitch = <0>;
 		sensor-position-yaw = <180>;
-		// eeprom-src = <&eeprom_uw>;
-		// actuator-src = <&actuator_triple_uw>;
+		eeprom-src = <&eeprom_wide>;
+		actuator-src = <&actuator_wide>;
 		led-flash-src = <&led_flash_rear_wide>;
-                ois-src = <&ois0>;
+		ois-src = <&ois0>;
 		cam_vio-supply = <&L6I>; // 1.8v
 		cam_vdig-supply = <&L1I>; // 1.1v
 		cam_clk-supply = <&cam_cc_camss_top_gdsc>;
 		cam_vana-supply = <&camera_0_avdd_ldo>; // avdd2 1.8v
 		cam_v_custom1-supply = <&L5I>; //avdd1 2.8v
-		regulator-names = "cam_vio", "cam_vdig", "cam_clk", "cam_vana", "cam_v_custom1";
+		cam_vaf-supply = <&L7I>;
+		regulator-names = "cam_vio", "cam_vdig", "cam_clk", "cam_vana", "cam_v_custom1","cam_vaf";
 		rgltr-cntrl-support;
-		rgltr-min-voltage = <1800000 1100000 0 1800000 2800000>;
-		rgltr-max-voltage = <1800000 1150000 0 1800000 2800000>;
-		rgltr-load-current = <3500 913200 0 63100 91430>;
+		rgltr-min-voltage = <1800000 1100000 0 1800000 2800000 3300000>;
+		rgltr-max-voltage = <1800000 1150000 0 1800000 2800000 3300000>;
+		rgltr-load-current = <3500 913200 0 63100 91430 91430>;
 		gpio-no-mux = <0>;
 		pinctrl-names = "cam_default", "cam_suspend";
 		pinctrl-0 = <&cam_sensor_mclk0_active
@@ -288,8 +338,8 @@
 		sensor-position-roll = <90>;
 		sensor-position-pitch = <0>;
 		sensor-position-yaw = <180>;
-		eeprom-src = <&eeprom_wide>;
-		actuator-src = <&actuator_wide>;
+		eeprom-src = <&eeprom_ultrawide>;
+		actuator-src = <&actuator_ultrawide>;
 		led-flash-src = <&led_flash_rear_ultrawide>;
 		cam_vio-supply = <&L6I>;                   /*checked pm8008 l_6p  1.8v */
 		cam_vdig-supply = <&vreg_uw_dvdd>;         /*checked pm8008 l_1p  1.1v */
@@ -325,8 +375,8 @@
 		sensor-position-roll = <90>;
 		sensor-position-pitch = <0>;
 		sensor-position-yaw = <180>;
-		eeprom-src = <&eeprom_wide>;
-		actuator-src = <&actuator_wide>;
+		eeprom-src = <&eeprom_ultrawide>;
+		actuator-src = <&actuator_ultrawide>;
 		led-flash-src = <&led_flash_rear_ultrawide>;
 		cam_vio-supply = <&L6I>;                   /*checked pm8008 l_6p  1.8v */
 		cam_vdig-supply = <&vreg_uw_dvdd>;         /*checked pm8008 l_1p  1.1v */
