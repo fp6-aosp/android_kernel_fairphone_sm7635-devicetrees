@@ -110,6 +110,7 @@ _platform_map = {
         ],
         "dtbo_list": [
             {"name": "fp6-sku-600-overlay.dtbo"},
+            {"name": "fp6-sku-603-overlay.dtbo"},
         ],
         "binary_compatible_with": ["cliffs", "pineapple", "volcano"],
     },
