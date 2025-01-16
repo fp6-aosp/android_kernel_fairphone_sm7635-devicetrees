@@ -181,7 +181,7 @@
 &cam_cci0 {
 	/* chengming.xiang add fp6 front sensor ov13b10 */
 	actuator_ultrawide: qcom,actuator2 {
-		cell-index = <1>;
+		cell-index = <2>;
 		compatible = "qcom,actuator";
 		cci-master = <CCI_MASTER_1>;
 		cam_vaf-supply = <&vreg_afvdd_2p8_uw>;
@@ -438,7 +438,7 @@
 		status = "ok";
 	};
 	actuator_s5kkd1: qcom,actuator1 {
-		cell-index = <0>;
+		cell-index = <1>;
 		compatible = "qcom,actuator";
 		cci-master = <CCI_MASTER_1>;
 		cam_vaf-supply = <&vreg_afvdd_2p8_ff>;
