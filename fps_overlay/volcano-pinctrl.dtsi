@@ -1890,4 +1890,84 @@
 			};
 		};
 	};
+
+	pmx_fp_pwr_high {
+		fingerprint_pins_power_output1: fingerprint_pins_power_output1 {
+			mux {
+				pins = "gpio29";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio29";
+				drive-strength = <2>;
+				bias-disable;
+				output-high;
+			};
+		};
+	};
+
+	pmx_fp_pwr_low {
+		fingerprint_pins_power_output0: fingerprint_pins_power_output0 {
+			mux {
+				pins = "gpio29";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio29";
+				drive-strength = <2>;
+				bias-disable;
+				output-low;
+			};
+		};
+	};
+
+	pmx_fp_int_active {
+		fingerprint_pins_eint_as_int: fingerprint_pins_eint_as_int {
+			mux {
+				pins = "gpio75";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio75";
+				drive-strength = <2>;
+				bias-disable;
+				input-enable;
+			};
+		};
+	};
+
+	pmx_fp_reset_active {
+		fingerprint_pins_rst_output1: fingerprint_pins_rst_output1 {
+			mux {
+				pins = "gpio74";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio74";
+				drive-strength = <2>;
+				bias-disable;
+				output-high;
+			};
+		};
+	};
+
+	pmx_fp_reset_suspend {
+		fingerprint_pins_rst_output0: fingerprint_pins_rst_output0 {
+			mux {
+				pins = "gpio74";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio74";
+				drive-strength = <2>;
+				bias-disable;
+				output-low;
+			};
+		};
+	};
 };
