@@ -243,11 +243,13 @@
         compatible = "qcom,actuator";
         cci-master = <CCI_MASTER_0>;
         cam_vaf-supply = <&L7I>;
-        regulator-names = "cam_vaf";
+        cam_vio-supply = <&L6I>;
+        cam_v_custom2-supply = <&camera_vddm_ldo>;
+        regulator-names = "cam_vaf", "cam_vio", "cam_v_custom2";
         rgltr-cntrl-support;
-        rgltr-min-voltage = <3200000>;
-        rgltr-max-voltage = <3200000>;
-        rgltr-load-current = <100000>;
+        rgltr-min-voltage = <3200000 1800000 3300000>;
+        rgltr-max-voltage = <3200000 1800000 3300000>;
+        rgltr-load-current = <100000 100000 100000>;
         status = "ok";
     };
 
