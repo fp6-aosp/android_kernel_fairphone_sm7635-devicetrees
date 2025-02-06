@@ -29,6 +29,11 @@
 		pinctrl-1 = <&hac_pa_sleep>;
 	};
 };
+
+&wcd9378_codec {
+	qcom,wcd-hac-pa-gpios = <&cdc_hac_pa_gpio>;
+};
+
 &spf_core_platform  {
 	cdc_sen_mi2s_gpios: sen_mi2s_pinctrl {
 		status = "okay";
@@ -53,10 +58,8 @@
 	asoc-codec-names = "msm-stub-codec.1", "lpass-cdc",
 			   "wcd9378_codec";
 
-	qcom,msm-hac-pa-gpios = <&cdc_hac_pa_gpio>;
-	
 	qcom,sen-mi2s-gpios = <&cdc_sen_mi2s_gpios>;
-	
+
 	qcom,audio-routing =
 		"AMIC1", "Analog Mic1",
 		"AMIC1", "MIC BIAS1",
@@ -84,40 +87,38 @@
 		"VA SWR_INPUT", "VA_SWR_CLK",
 		"VA_AIF1 CAP", "VA_SWR_CLK",
 		"VA_AIF2 CAP", "VA_SWR_CLK",
-		"VA_AIF3 CAP", "VA_SWR_CLK";
-//		"EAR","HAC_RX";
+		"VA_AIF3 CAP", "VA_SWR_CLK",
+		"EAR","HAC_RX";
 
 };
 
 &tlmm {
 	/* hac pa enable pins */
-	cdc_hac_pa_enable_gpio {
 	hac_pa_active:hac_pa_active {
 	    mux {
-		pins = "gpio82";
-		function = "gpio";
+			pins = "gpio82";
+			function = "gpio";
 	    };
 
 	    config {
-		pins = "gpio82";
-		drive-strength = <16>;
-		bias-disable;
-		output-high;
+			pins = "gpio82";
+			drive-strength = <16>;
+			bias-disable;
+			output-high;
 	    };
 	};
 	hac_pa_sleep: hac_pa_sleep {
 	    mux {
-		pins = "gpio82";
-		function = "gpio";
+			pins = "gpio82";
+			function = "gpio";
 	    };
 
 	    config {
-		pins = "gpio82";
-		drive-strength = <2>;
-		bias-pull-down;
-		input-enable;
+			pins = "gpio82";
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
 	    };
-	};
 	};
 };
 
