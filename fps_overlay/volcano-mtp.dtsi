@@ -104,6 +104,7 @@
 */
 
 	qcom,touch-active = "eswin,eph861x";
+	qcom,disable-autosuspend;
 	eswin_eph861x@0 {
 		reg = <0>;
 		pinctrl-names = "ts_active", "ts_suspend";
