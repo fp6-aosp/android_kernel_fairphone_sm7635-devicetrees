@@ -22,6 +22,7 @@
 						0C 0B 02 04 00 23 10];
 			qcom,display-topology = <1 0 1>;
 			qcom,default-topology-index = <0>;
+			qcom,mdss-mdp-transfer-time-us = <12500>;
 		};
 	};
 };
