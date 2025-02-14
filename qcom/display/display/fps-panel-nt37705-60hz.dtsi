@@ -104,7 +104,7 @@
 };
 
 &qupv3_se0_spi {
-	goodix-berlin@0 {
+	eswin_eph861x@0 {
 		panel = <&nt37705_boe_amoled_cmd>;
 	};
 };
