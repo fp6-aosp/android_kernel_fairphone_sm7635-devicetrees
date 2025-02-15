@@ -72,7 +72,7 @@
 	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
 	qcom,mdss-dsi-bl-min-level = <1>;
 	qcom,mdss-dsi-bl-max-level = <4095>;
-	//qcom,mdss-brightness-max-level = <8191>;
+	qcom,mdss-brightness-max-level = <4094>;
 	qcom,platform-reset-gpio = <&tlmm 12 0>;
 	qcom,platform-dvdd-off-gpio = <&tlmm 54 0>;
 	//qcom,platform-vci-off-gpio = <&pm8350c_gpios 7 0>; //fp5
