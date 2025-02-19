@@ -72,9 +72,9 @@ key_vol_up {
 
 &soc {
 	///[ADD][EMKIT]///
-	emkit_info {
-		compatible = "emkit-info,sys-emkit-info";
-		status = "ok";
+	emkit_info: emkit_info {
+			compatible = "emkit-info,sys-emkit-info";
+			status = "ok";
 	};
 };
 
