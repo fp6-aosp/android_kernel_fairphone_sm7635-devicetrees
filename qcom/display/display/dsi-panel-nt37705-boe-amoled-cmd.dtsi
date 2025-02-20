@@ -41,6 +41,8 @@
 		qcom,mdss-pan-physical-width-dimension = <66>;
 		qcom,mdss-pan-physical-height-dimension = <146>;
 
+		qcom,dynamic-mode-switch-enabled;
+		qcom,dynamic-mode-switch-type = "dynamic-resolution-switch-immediate";
 
 		qcom,mdss-dsi-display-timings {
 			timing@0 {
@@ -54,186 +56,696 @@
 				qcom,mdss-dsi-v-back-porch = <70>;
 				qcom,mdss-dsi-v-front-porch = <70>;
 				qcom,mdss-dsi-v-pulse-width = <48>;
-
+				qcom,mdss-dsi-h-left-border = <0>;
+				qcom,mdss-dsi-h-right-border = <0>;
+				qcom,mdss-dsi-v-top-border = <0>;
+				qcom,mdss-dsi-v-bottom-border = <0>;
 				qcom,mdss-dsi-panel-jitter = <0x4 0x1>;//
 				qcom,mdss-dsi-panel-framerate = <60>;
 				qcom,mdss-dsi-on-command = [
 					//## Page 0
 					// Skip mode setting
-					29 01 00 00 00 00 06 F0 55 AA 52 08 00
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
 
 					// LP_MODE=1
-					29 01 00 00 00 00 02 6F 1B
-					29 01 00 00 00 00 02 BA 18
+					39 01 00 00 00 00 02 6F 1B
+					39 01 00 00 00 00 02 BA 18
 
 					// Skip frame Seq1
-					29 01 00 00 00 00 02 6F 1C
-					29 01 00 00 00 00 11 BA 01 01 01 01 01 00 00 00 01 00 00 00 00 00 00 00
+					39 01 00 00 00 00 02 6F 1C
+					39 01 00 00 00 00 11 BA 01 01 01 01 01 00 00 00 01 00 00 00 00 00 00 00
 
 					// Skip frame Seq2
-					29 01 00 00 00 00 02 6F 2C
-					29 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+					39 01 00 00 00 00 02 6F 2C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
 					// Skip frame Seq3
-					29 01 00 00 00 00 02 6F 3C
-					29 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+					39 01 00 00 00 00 02 6F 3C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
 					// Skip frame Seq4
-					29 01 00 00 00 00 02 6F 4C
-					29 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+					39 01 00 00 00 00 02 6F 4C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
 					// Skip frame Seq5
-					29 01 00 00 00 00 02 6F 5C
-					29 01 00 00 00 00 11 BA 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01
+					39 01 00 00 00 00 02 6F 5C
+					39 01 00 00 00 00 11 BA 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01
 
 					// Skip frame Seq5 of Blanking frame
-					29 01 00 00 00 00 02 6F 6C
-					29 01 00 00 00 00 11 BA 01 01 02 03 04 05 01 77 01 01 01 0B 01 1D 01 01
+					39 01 00 00 00 00 02 6F 6C
+					39 01 00 00 00 00 11 BA 01 01 02 03 04 05 01 77 01 01 01 0B 01 1D 01 01
 
 					// Skip frame Seq5 of blanking Frame A
-					29 01 00 00 00 00 02 6F 7C
-					29 01 00 00 00 00 11 BA 01 01 02 03 04 05 01 77 01 01 01 0B 01 1D 01 01
+					39 01 00 00 00 00 02 6F 7C
+					39 01 00 00 00 00 11 BA 01 01 02 03 04 05 01 77 01 01 01 0B 01 1D 01 01
 
 					// Skip frame Seq5 of blanking Frame B
-					29 01 00 00 00 00 02 6F 8C
-					29 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+					39 01 00 00 00 00 02 6F 8C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
 					// Seq cycle setting
-					29 01 00 00 00 00 02 6F 9C
-					29 01 00 00 00 00 09 BA 11 11 00 00 00 00 00 00
+					39 01 00 00 00 00 02 6F 9C
+					39 01 00 00 00 00 09 BA 11 11 00 00 00 00 00 00
 
 					// Seq1to4_sel_mode
-					29 01 00 00 00 00 02 6F A4
-					29 01 00 00 00 00 05 BA 00 00 00 00
+					39 01 00 00 00 00 02 6F A4
+					39 01 00 00 00 00 05 BA 00 00 00 00
 
 					// Skip mode FCON SEL
-					29 01 00 00 00 00 02 6F A8
-					29 01 00 00 00 00 09 BA 22 22 22 22 22 22 22 22
+					39 01 00 00 00 00 02 6F A8
+					39 01 00 00 00 00 09 BA 22 22 22 22 22 22 22 22
 
 					// Skip mode GMA SEL
-					29 01 00 00 00 00 02 6F B0
-					29 01 00 00 00 00 09 BA 22 22 22 22 22 22 22 22
+					39 01 00 00 00 00 02 6F B0
+					39 01 00 00 00 00 09 BA 22 22 22 22 22 22 22 22
 
-					//  Page 1
-					29 01 00 00 00 00 06 F0 55 AA 52 08 01
+					// Page 1
+					39 01 00 00 00 00 06 F0 55 AA 52 08 01
 
-					// Adjust Voltage for DVDD
-					29 01 00 00 00 00 02 6F 05
-					29 01 00 00 00 00 05 C5 15 15 15 DD
+					// #Adjust Voltage for DVDD
+					39 01 00 00 00 00 02 6F 05
+					39 01 00 00 00 00 05 C5 15 15 15 DD
 
-					//  Page 0
-					29 01 00 00 00 00 06 F0 55 AA 52 08 00
+					// Page 0
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
 
-					// FD
-					29 01 00 00 00 00 02 6F 0E
-					29 01 00 00 00 00 02 B5 32
+					// #AOD FD ON
+					15 01 00 00 00 00 02 6F 0E
+					15 01 00 00 00 00 02 B5 32
 
 					//  Page disable
-					29 01 00 00 00 00 06 F0 55 AA 52 00 00
+					39 01 00 00 00 00 06 F0 55 AA 52 00 00
 
 					// CMD3_Page0
-					29 01 00 00 00 00 05 FF AA 55 A5 80
+					39 01 00 00 00 00 05 FF AA 55 A5 80
 
-					// Idle_SRE_off
-					29 01 00 00 00 00 02 6F 19
-					29 01 00 00 00 00 02 F2 00
+					// #Idle_SRE_off
+					15 01 00 00 00 00 02 6F 19
+					15 01 00 00 00 00 02 F2 00
 
-					// SWC slew ratio
-					29 01 00 00 00 00 02 6F 1A
-					29 01 00 00 00 00 02 F4 55
+					// #SWC slew ratio
+					15 01 00 00 00 00 02 6F 1A
+					15 01 00 00 00 00 02 F4 55
 
-					// OSC2=139.6MHz
-					29 01 00 00 00 00 02 6F 11
-					29 01 00 00 00 00 03 F8 01 7F
+					// #OSC2=139.6MHz
+					15 01 00 00 00 00 02 6F 11
+					39 01 00 00 00 00 03 F8 01 7F
 
-					// OSC1=139.6MHz
-					29 01 00 00 00 00 02 6F 2D
-					29 01 00 00 00 00 03 F8 01 20
+					// #OSC1=139.6MHz
+					15 01 00 00 00 00 02 6F 2D
+					39 01 00 00 00 00 03 F8 01 20
 
 					// CMD3_Page1
-					29 01 00 00 00 00 05 FF AA 55 A5 81
+					39 01 00 00 00 00 05 FF AA 55 A5 81
 
-					// porch ld disable
-					29 01 00 00 00 00 02 6F 05
-					29 01 00 00 00 00 02 FE 3C
+					// #porch ld disable
+					15 01 00 00 00 00 02 6F 05
+					15 01 00 00 00 00 02 FE 3C
 
-					// WB_PS_Build_DLY
-					29 01 00 00 00 00 02 6F 02
-					29 01 00 00 00 00 02 F9 04
+					// #WB_PS_Build_DLY
+					15 01 00 00 00 00 02 6F 02
+					15 01 00 00 00 00 02 F9 04
 
-					// OSC divider OPT
-					29 01 00 00 00 00 02 6F 1E
-					29 01 00 00 00 00 02 FB 0F
+					// #OSC divider OPT
+					15 01 00 00 00 00 02 6F 1E
+					15 01 00 00 00 00 02 FB 0F
 
-					// BOIS clk On
-					29 01 00 00 00 00 02 6F 0F
-					29 01 00 00 00 00 02 F5 20
+					// #BOIS clk On
+					15 01 00 00 00 00 02 6F 0F
+					15 01 00 00 00 00 02 F5 20
 
-					// tg_opt(skip_TE
-					29 01 00 00 00 00 02 6F 0D
-					29 01 00 00 00 00 02 FB 80
+					// #tg_opt(skip_TE
+					15 01 00 00 00 00 02 6F 0D
+					15 01 00 00 00 00 02 FB 80
 
 					// CMD3_Page3
-					29 01 00 00 00 00 05 FF AA 55 A5 83
+					39 01 00 00 00 00 05 FF AA 55 A5 83
 
-					// VRAM
-					29 01 00 00 00 00 02 6F 12
-					29 01 00 00 00 00 02 FE 41
+					// #VRAM
+					15 01 00 00 00 00 02 6F 12
+					15 01 00 00 00 00 02 FE 41
 
-					// Demura_xl1205
-					29 01 00 00 00 00 02 6F 13
-					29 01 00 00 00 00 02 FD 21
+					// #Demura_xl1205
+					15 01 00 00 00 00 02 6F 13
+					15 01 00 00 00 00 02 FD 21
 
-					// CMD Disable
-					29 01 00 00 00 00 05 FF AA 55 A5 00
+					// #CMD Disable
+					39 01 00 00 00 00 05 FF AA 55 A5 00
 
-					// CMD1
+					// #TE ON
 					05 01 00 00 00 00 01 35
 
-					// BC Dimming oFF
-					29 01 00 00 00 00 02 53 20
-					29 01 00 00 00 00 05 2A 00 00 04 5B
-					29 01 00 00 00 00 05 2B 00 00 09 B3
+					// #BC Dimming oFF
+					15 01 00 00 00 00 02 53 20
+					// #CASET
+					39 01 00 00 00 00 05 2A 00 00 04 5B
+					// #PASET
+					39 01 00 00 00 00 05 2B 00 00 09 B3
 
-					// Normal GMA
-					29 01 00 00 00 00 02 26 00
+					// #Normal GMA
+					15 01 00 00 00 00 02 26 00
 
 					// Normal DBV
-					29 01 00 00 00 00 03 51 0D BB
+					39 01 00 00 00 00 03 51 0D BB
 
 					// idle DBV
-					29 01 00 00 00 00 02 6F 04
-					29 01 00 00 00 00 03 51 0F FE
+					15 01 00 00 00 00 02 6F 04
+					39 01 00 00 00 00 03 51 0F FE
 
-					// CMD1, DPC Temperature
-					29 01 00 00 00 00 03 81 01 19
+					// #CMD1, DPC Temperature
+					39 01 00 00 00 00 03 81 01 19
 
 					// VESA off,IC en/decode
-					29 01 00 00 00 00 03 90 00 00
+					//39 01 00 00 00 00 03 90 00 00
+
+					// DSC setting
+					15 01 00 00 00 00 02 03 01
+					39 01 00 00 00 00 03 90 03 03
+					39 01 00 00 00 00 13 91 89 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
 
 					// Normal Display
-					29 01 00 00 00 00 02 2F 02
+					15 01 00 00 00 00 02 2F 02
 
 					// Setting 60hz
-					29 01 00 00 00 00 02 5A 01
-					29 01 00 00 00 00 02 2F 30
-					29 01 00 00 00 00 02 6D 01
+					15 01 00 00 00 00 02 5A 01
+					15 01 00 00 00 00 02 2F 30
+					15 01 00 00 00 00 02 6D 01
 
 					// Normal Display
-					05 01 00 00 78 00 02 11 00
+					15 01 00 00 78 00 02 11 00
 
 					// Display On
-					05 01 00 00 16 00 02 29 00
+					15 01 00 00 16 00 02 29 00
+				];
+
+				qcom,mdss-dsi-dbv-bsd-90hz-12pulse-mode-command = [
+					//beside 90hz DBV <= 1290
+					15 01 00 00 00 00 02 2F 02
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+					15 01 00 00 00 00 02 6F 13
+					15 01 00 00 00 00 02 B2 4B
+				];
+
+				qcom,mdss-dsi-dbv-bsd-90hz-3pulse-mode-command = [
+					//beside 90hz DBV > 1290
+					15 01 00 00 00 00 02 2F 02
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+					15 01 00 00 00 00 02 6F 13
+					15 01 00 00 00 00 02 B2 42
 				];
 
 				qcom,mdss-dsi-off-command = [
 					//29 01 00 00 01 00 02 FE 00
-					05 01 00 00 01 00 02 28 00
-					05 01 00 00 64 00 02 10 00
+					15 01 00 00 01 00 02 28 00
+					15 01 00 00 64 00 02 10 00
 				];
 
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-dbv-bsd-90hz-12pulse-mode-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-dbv-bsd-90hz-3pulse-mode-command-state = "dsi_hs_mode";
+
+				qcom,mdss-dsi-h-sync-pulse = <0>;
+				qcom,compression-mode = "dsc";
+				qcom,mdss-dsc-version = <0x11>;
+				qcom,mdss-dsc-scr-version = <0x0>;
+				qcom,mdss-dsc-slice-height = <12>;
+				qcom,mdss-dsc-slice-width = <558>;
+				qcom,mdss-dsc-slice-per-pkt = <2>;
+				qcom,mdss-dsc-bit-per-component = <8>;
+				qcom,mdss-dsc-bit-per-pixel = <8>;
+				qcom,mdss-dsc-block-prediction-enable;
+			};
+
+			timing@1 {
+				qcom,mdss-dsi-cmd-mode;
+				qcom,mdss-dsi-panel-width = <1116>;
+				qcom,mdss-dsi-panel-height = <2484>;
+				qcom,mdss-dsi-h-front-porch = <100>;
+				qcom,mdss-dsi-h-back-porch = <100>;
+				qcom,mdss-dsi-h-pulse-width = <30>;
+				qcom,mdss-dsi-h-sync-skew = <0>;
+				qcom,mdss-dsi-v-back-porch = <70>;
+				qcom,mdss-dsi-v-front-porch = <70>;
+				qcom,mdss-dsi-v-pulse-width = <48>;
+				qcom,mdss-dsi-h-left-border = <0>;
+				qcom,mdss-dsi-h-right-border = <0>;
+				qcom,mdss-dsi-v-top-border = <0>;
+				qcom,mdss-dsi-v-bottom-border = <0>;
+				qcom,mdss-dsi-panel-jitter = <0x4 0x1>;//
+				qcom,mdss-dsi-panel-framerate = <120>;
+				qcom,mdss-dsi-on-command = [
+					//## Page 0
+					// Skip mode setting
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+
+					// LP_MODE=1
+					39 01 00 00 00 00 02 6F 1B
+					39 01 00 00 00 00 02 BA 18
+
+					// Skip frame Seq1
+					39 01 00 00 00 00 02 6F 1C
+					39 01 00 00 00 00 11 BA 01 01 01 01 01 00 00 00 01 00 00 00 00 00 00 00
+
+					// Skip frame Seq2
+					39 01 00 00 00 00 02 6F 2C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+					// Skip frame Seq3
+					39 01 00 00 00 00 02 6F 3C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+					// Skip frame Seq4
+					39 01 00 00 00 00 02 6F 4C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+					// Skip frame Seq5
+					39 01 00 00 00 00 02 6F 5C
+					39 01 00 00 00 00 11 BA 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01
+
+					// Skip frame Seq5 of Blanking frame
+					39 01 00 00 00 00 02 6F 6C
+					39 01 00 00 00 00 11 BA 01 01 02 03 04 05 01 77 01 01 01 0B 01 1D 01 01
+
+					// Skip frame Seq5 of blanking Frame A
+					39 01 00 00 00 00 02 6F 7C
+					39 01 00 00 00 00 11 BA 01 01 02 03 04 05 01 77 01 01 01 0B 01 1D 01 01
+
+					// Skip frame Seq5 of blanking Frame B
+					39 01 00 00 00 00 02 6F 8C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+					// Seq cycle setting
+					39 01 00 00 00 00 02 6F 9C
+					39 01 00 00 00 00 09 BA 11 11 00 00 00 00 00 00
+
+					// Seq1to4_sel_mode
+					39 01 00 00 00 00 02 6F A4
+					39 01 00 00 00 00 05 BA 00 00 00 00
+
+					// Skip mode FCON SEL
+					39 01 00 00 00 00 02 6F A8
+					39 01 00 00 00 00 09 BA 22 22 22 22 22 22 22 22
+
+					// Skip mode GMA SEL
+					39 01 00 00 00 00 02 6F B0
+					39 01 00 00 00 00 09 BA 22 22 22 22 22 22 22 22
+
+					// Page 1
+					39 01 00 00 00 00 06 F0 55 AA 52 08 01
+
+					// #Adjust Voltage for DVDD
+					39 01 00 00 00 00 02 6F 05
+					39 01 00 00 00 00 05 C5 15 15 15 DD
+
+					// Page 0
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+
+					// #AOD FD ON
+					15 01 00 00 00 00 02 6F 0E
+					15 01 00 00 00 00 02 B5 32
+
+					//  Page disable
+					39 01 00 00 00 00 06 F0 55 AA 52 00 00
+
+					// CMD3_Page0
+					39 01 00 00 00 00 05 FF AA 55 A5 80
+
+					// #Idle_SRE_off
+					15 01 00 00 00 00 02 6F 19
+					15 01 00 00 00 00 02 F2 00
+
+					// #SWC slew ratio
+					15 01 00 00 00 00 02 6F 1A
+					15 01 00 00 00 00 02 F4 55
+
+					// #OSC2=139.6MHz
+					15 01 00 00 00 00 02 6F 11
+					39 01 00 00 00 00 03 F8 01 7F
+
+					// #OSC1=139.6MHz
+					15 01 00 00 00 00 02 6F 2D
+					39 01 00 00 00 00 03 F8 01 20
+
+					// CMD3_Page1
+					39 01 00 00 00 00 05 FF AA 55 A5 81
+
+					// #porch ld disable
+					15 01 00 00 00 00 02 6F 05
+					15 01 00 00 00 00 02 FE 3C
+
+					// #WB_PS_Build_DLY
+					15 01 00 00 00 00 02 6F 02
+					15 01 00 00 00 00 02 F9 04
+
+					// #OSC divider OPT
+					15 01 00 00 00 00 02 6F 1E
+					15 01 00 00 00 00 02 FB 0F
+
+					// #BOIS clk On
+					15 01 00 00 00 00 02 6F 0F
+					15 01 00 00 00 00 02 F5 20
+
+					// #tg_opt(skip_TE
+					15 01 00 00 00 00 02 6F 0D
+					15 01 00 00 00 00 02 FB 80
+
+					// CMD3_Page3
+					39 01 00 00 00 00 05 FF AA 55 A5 83
+
+					// #VRAM
+					15 01 00 00 00 00 02 6F 12
+					15 01 00 00 00 00 02 FE 41
+
+					// #Demura_xl1205
+					15 01 00 00 00 00 02 6F 13
+					15 01 00 00 00 00 02 FD 21
+
+					// #CMD Disable
+					39 01 00 00 00 00 05 FF AA 55 A5 00
+
+					// #TE ON
+					05 01 00 00 00 00 01 35
+
+					// #BC Dimming oFF
+					15 01 00 00 00 00 02 53 20
+					// #CASET
+					39 01 00 00 00 00 05 2A 00 00 04 5B
+					// #PASET
+					39 01 00 00 00 00 05 2B 00 00 09 B3
+
+					// #Normal GMA
+					15 01 00 00 00 00 02 26 00
+
+					// Normal DBV
+					39 01 00 00 00 00 03 51 0D BB
+
+					// idle DBV
+					15 01 00 00 00 00 02 6F 04
+					39 01 00 00 00 00 03 51 0F FE
+
+					// #CMD1, DPC Temperature
+					39 01 00 00 00 00 03 81 01 19
+
+					// VESA off,IC en/decode
+					//39 01 00 00 00 00 03 90 00 00
+
+					// DSC setting
+					15 01 00 00 00 00 02 03 01
+					39 01 00 00 00 00 03 90 03 03
+					39 01 00 00 00 00 13 91 89 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
+
+					// Normal Display
+					//15 01 00 00 00 00 02 2F 02
+
+					// Setting 60hz
+					15 01 00 00 00 00 02 5A 01
+					15 01 00 00 00 00 02 2F 30
+					15 01 00 00 00 00 02 6D 01
+
+					15 01 00 00 00 00 02 2F 02
+
+					// Normal Display
+					15 01 00 00 78 00 02 11 00
+
+					// Display On
+					15 01 00 00 16 00 02 29 00
+				];
+
+				qcom,mdss-dsi-dbv-bsd-90hz-12pulse-mode-command = [
+					//beside 90hz and DBV <= 1290
+					15 01 00 00 00 00 02 2F 02
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+					15 01 00 00 00 00 02 6F 13
+					15 01 00 00 00 00 02 B2 4B
+				];
+
+				qcom,mdss-dsi-dbv-bsd-90hz-3pulse-mode-command = [
+					//beside 90hz and DBV > 1290
+					15 01 00 00 00 00 02 2F 02
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+					15 01 00 00 00 00 02 6F 13
+					15 01 00 00 00 00 02 B2 42
+				];
+
+				qcom,mdss-dsi-off-command = [
+					//29 01 00 00 01 00 02 FE 00
+					15 01 00 00 01 00 02 28 00
+					15 01 00 00 64 00 02 10 00
+				];
+
+				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-dbv-bsd-90hz-12pulse-mode-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-dbv-bsd-90hz-3pulse-mode-command-state = "dsi_hs_mode";
+
+				qcom,mdss-dsi-h-sync-pulse = <0>;
+				qcom,compression-mode = "dsc";
+				qcom,mdss-dsc-version = <0x11>;
+				qcom,mdss-dsc-scr-version = <0x0>;
+				qcom,mdss-dsc-slice-height = <12>;
+				qcom,mdss-dsc-slice-width = <558>;
+				qcom,mdss-dsc-slice-per-pkt = <2>;
+				qcom,mdss-dsc-bit-per-component = <8>;
+				qcom,mdss-dsc-bit-per-pixel = <8>;
+				qcom,mdss-dsc-block-prediction-enable;
+			};
+
+			timing@2 {
+				qcom,mdss-dsi-cmd-mode;
+				qcom,mdss-dsi-panel-width = <1116>;
+				qcom,mdss-dsi-panel-height = <2484>;
+				qcom,mdss-dsi-h-front-porch = <100>;
+				qcom,mdss-dsi-h-back-porch = <100>;
+				qcom,mdss-dsi-h-pulse-width = <30>;
+				qcom,mdss-dsi-h-sync-skew = <0>;
+				qcom,mdss-dsi-v-back-porch = <70>;
+				qcom,mdss-dsi-v-front-porch = <70>;
+				qcom,mdss-dsi-v-pulse-width = <48>;
+				qcom,mdss-dsi-h-left-border = <0>;
+				qcom,mdss-dsi-h-right-border = <0>;
+				qcom,mdss-dsi-v-top-border = <0>;
+				qcom,mdss-dsi-v-bottom-border = <0>;
+				qcom,mdss-dsi-panel-jitter = <0x4 0x1>;//
+				qcom,mdss-dsi-panel-framerate = <90>;
+				qcom,mdss-dsi-on-command = [
+					//## Page 0
+					// Skip mode setting
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+
+					// LP_MODE=1
+					39 01 00 00 00 00 02 6F 1B
+					39 01 00 00 00 00 02 BA 18
+
+					// Skip frame Seq1
+					39 01 00 00 00 00 02 6F 1C
+					39 01 00 00 00 00 11 BA 01 01 01 01 01 00 00 00 01 00 00 00 00 00 00 00
+
+					// Skip frame Seq2
+					39 01 00 00 00 00 02 6F 2C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+					// Skip frame Seq3
+					39 01 00 00 00 00 02 6F 3C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+					// Skip frame Seq4
+					39 01 00 00 00 00 02 6F 4C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+					// Skip frame Seq5
+					39 01 00 00 00 00 02 6F 5C
+					39 01 00 00 00 00 11 BA 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01
+
+					// Skip frame Seq5 of Blanking frame
+					39 01 00 00 00 00 02 6F 6C
+					39 01 00 00 00 00 11 BA 01 01 02 03 04 05 01 77 01 01 01 0B 01 1D 01 01
+
+					// Skip frame Seq5 of blanking Frame A
+					39 01 00 00 00 00 02 6F 7C
+					39 01 00 00 00 00 11 BA 01 01 02 03 04 05 01 77 01 01 01 0B 01 1D 01 01
+
+					// Skip frame Seq5 of blanking Frame B
+					39 01 00 00 00 00 02 6F 8C
+					39 01 00 00 00 00 11 BA 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+					// Seq cycle setting
+					39 01 00 00 00 00 02 6F 9C
+					39 01 00 00 00 00 09 BA 11 11 00 00 00 00 00 00
+
+					// Seq1to4_sel_mode
+					39 01 00 00 00 00 02 6F A4
+					39 01 00 00 00 00 05 BA 00 00 00 00
+
+					// Skip mode FCON SEL
+					39 01 00 00 00 00 02 6F A8
+					39 01 00 00 00 00 09 BA 22 22 22 22 22 22 22 22
+
+					// Skip mode GMA SEL
+					39 01 00 00 00 00 02 6F B0
+					39 01 00 00 00 00 09 BA 22 22 22 22 22 22 22 22
+
+					// Page 1
+					39 01 00 00 00 00 06 F0 55 AA 52 08 01
+
+					// #Adjust Voltage for DVDD
+					39 01 00 00 00 00 02 6F 05
+					39 01 00 00 00 00 05 C5 15 15 15 DD
+
+					// Page 0
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+
+					// #AOD FD ON
+					15 01 00 00 00 00 02 6F 0E
+					15 01 00 00 00 00 02 B5 32
+
+					//  Page disable
+					39 01 00 00 00 00 06 F0 55 AA 52 00 00
+
+					// CMD3_Page0
+					39 01 00 00 00 00 05 FF AA 55 A5 80
+
+					// #Idle_SRE_off
+					15 01 00 00 00 00 02 6F 19
+					15 01 00 00 00 00 02 F2 00
+
+					// #SWC slew ratio
+					15 01 00 00 00 00 02 6F 1A
+					15 01 00 00 00 00 02 F4 55
+
+					// #OSC2=139.6MHz
+					15 01 00 00 00 00 02 6F 11
+					39 01 00 00 00 00 03 F8 01 7F
+
+					// #OSC1=139.6MHz
+					15 01 00 00 00 00 02 6F 2D
+					39 01 00 00 00 00 03 F8 01 20
+
+					// CMD3_Page1
+					39 01 00 00 00 00 05 FF AA 55 A5 81
+
+					// #porch ld disable
+					15 01 00 00 00 00 02 6F 05
+					15 01 00 00 00 00 02 FE 3C
+
+					// #WB_PS_Build_DLY
+					15 01 00 00 00 00 02 6F 02
+					15 01 00 00 00 00 02 F9 04
+
+					// #OSC divider OPT
+					15 01 00 00 00 00 02 6F 1E
+					15 01 00 00 00 00 02 FB 0F
+
+					// #BOIS clk On
+					15 01 00 00 00 00 02 6F 0F
+					15 01 00 00 00 00 02 F5 20
+
+					// #tg_opt(skip_TE
+					15 01 00 00 00 00 02 6F 0D
+					15 01 00 00 00 00 02 FB 80
+
+					// CMD3_Page3
+					39 01 00 00 00 00 05 FF AA 55 A5 83
+
+					// #VRAM
+					15 01 00 00 00 00 02 6F 12
+					15 01 00 00 00 00 02 FE 41
+
+					// #Demura_xl1205
+					15 01 00 00 00 00 02 6F 13
+					15 01 00 00 00 00 02 FD 21
+
+					// #CMD Disable
+					39 01 00 00 00 00 05 FF AA 55 A5 00
+
+					// #TE ON
+					05 01 00 00 00 00 01 35
+
+					// #BC Dimming oFF
+					15 01 00 00 00 00 02 53 20
+					// #CASET
+					39 01 00 00 00 00 05 2A 00 00 04 5B
+					// #PASET
+					39 01 00 00 00 00 05 2B 00 00 09 B3
+
+					// #Normal GMA
+					15 01 00 00 00 00 02 26 00
+
+					// Normal DBV
+					39 01 00 00 00 00 03 51 0D BB
+
+					// idle DBV
+					15 01 00 00 00 00 02 6F 04
+					39 01 00 00 00 00 03 51 0F FE
+
+					// #CMD1, DPC Temperature
+					39 01 00 00 00 00 03 81 01 19
+
+					// VESA off,IC en/decode
+					//39 01 00 00 00 00 03 90 00 00
+
+					// DSC setting
+					15 01 00 00 00 00 02 03 01
+					39 01 00 00 00 00 03 90 03 03
+					39 01 00 00 00 00 13 91 89 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
+
+					// Normal Display
+					//15 01 00 00 00 00 02 2F 02
+
+					// Setting 60hz
+					//15 01 00 00 00 00 02 5A 01
+					//15 01 00 00 00 00 02 2F 30
+					//15 01 00 00 00 00 02 6D 01
+
+					15 01 00 00 00 00 02 2F 01
+					//39 01 00 00 00 00 05 F0 55 52 08 00
+					//15 01 00 00 00 00 02 6F 12
+					//15 01 00 00 00 00 02 B2 03
+
+					// Normal Display
+					15 01 00 00 78 00 02 11 00
+
+					// Display On
+					15 01 00 00 16 00 02 29 00
+				];
+
+				qcom,mdss-dsi-dbv-90hz-16pulse-mode-command = [
+					//90hz DBV <= 1290
+					15 01 00 00 00 00 02 2F 01
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+					15 01 00 00 00 00 02 6F 12
+					15 01 00 00 00 00 02 B2 0F
+				];
+
+				qcom,mdss-dsi-dbv-90hz-4pulse-mode-command = [
+					//90hz DBV > 1290
+					15 01 00 00 00 00 02 2F 01
+					39 01 00 00 00 00 06 F0 55 AA 52 08 00
+					15 01 00 00 00 00 02 6F 12
+					15 01 00 00 00 00 02 B2 03
+				];
+
+				qcom,mdss-dsi-off-command = [
+					//29 01 00 00 01 00 02 FE 00
+					15 01 00 00 01 00 02 28 00
+					15 01 00 00 64 00 02 10 00
+				];
+
+				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-dbv-90hz-16pulse-mode-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-dbv-90hz-4pulse-mode-command-state = "dsi_hs_mode";
+
+				qcom,mdss-dsi-h-sync-pulse = <0>;
+				qcom,compression-mode = "dsc";
+				qcom,mdss-dsc-version = <0x11>;
+				qcom,mdss-dsc-scr-version = <0x0>;
+				qcom,mdss-dsc-slice-height = <12>;
+				qcom,mdss-dsc-slice-width = <558>;
+				qcom,mdss-dsc-slice-per-pkt = <2>;
+				qcom,mdss-dsc-bit-per-component = <8>;
+				qcom,mdss-dsc-bit-per-pixel = <8>;
+				qcom,mdss-dsc-block-prediction-enable;
 			};
 		};
 	};
