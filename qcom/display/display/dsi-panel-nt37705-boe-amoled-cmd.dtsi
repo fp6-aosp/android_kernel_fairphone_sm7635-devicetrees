@@ -260,10 +260,17 @@
 					15 01 00 00 64 00 02 10 00
 				];
 
+				qcom,mdss-dsi-timing-switch-command = [
+					15 01 00 00 00 00 02 5A 01
+					15 01 00 00 00 00 02 2F 30
+					15 01 00 00 00 00 02 6D 01
+				];
+
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-dbv-bsd-90hz-12pulse-mode-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-dbv-bsd-90hz-3pulse-mode-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-timing-switch-command-state = "dsi_lp_mode";
 
 				qcom,mdss-dsi-h-sync-pulse = <0>;
 				qcom,compression-mode = "dsc";
@@ -494,10 +501,15 @@
 					15 01 00 00 64 00 02 10 00
 				];
 
+				qcom,mdss-dsi-timing-switch-command = [
+					15 01 00 00 00 00 02 2F 02
+				];
+
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-dbv-bsd-90hz-12pulse-mode-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-dbv-bsd-90hz-3pulse-mode-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-timing-switch-command-state = "dsi_lp_mode";
 
 				qcom,mdss-dsi-h-sync-pulse = <0>;
 				qcom,compression-mode = "dsc";
@@ -731,10 +743,15 @@
 					15 01 00 00 64 00 02 10 00
 				];
 
+				qcom,mdss-dsi-timing-switch-command = [
+					15 01 00 00 00 00 02 2F 01
+				];
+
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-dbv-90hz-16pulse-mode-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-dbv-90hz-4pulse-mode-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-timing-switch-command-state = "dsi_lp_mode";
 
 				qcom,mdss-dsi-h-sync-pulse = <0>;
 				qcom,compression-mode = "dsc";
