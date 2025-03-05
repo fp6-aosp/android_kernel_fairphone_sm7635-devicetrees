@@ -16,11 +16,12 @@
 /* set timing */
 &nt37705_boe_amoled_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
+	qcom,poms-align-panel-vsync;
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
 			//60hz
-			qcom,mdss-dsi-panel-phy-timings = [00 15 05 05 14 1F 05
-						05 06 02 04 00 13 0A];
+			qcom,mdss-dsi-panel-phy-timings = [00 19 06 06 15 1F 07
+						06 07 02 04 00 16 0B];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			//qcom,mdss-mdp-transfer-time-us = <7000>;
@@ -30,8 +31,8 @@
 		};
 		timing@1 {
 			//120hz
-			qcom,mdss-dsi-panel-phy-timings = [00 26 0A 0A 1B 19 0A
-						0A 0A 02 04 00 20 0F];
+			qcom,mdss-dsi-panel-phy-timings = [00 2D 0C 0C 1D 1B 0C
+						0D 0B 02 04 00 25 11];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,mdss-mdp-transfer-time-us-min = <6900>;
@@ -39,8 +40,8 @@
 		};
 		timing@2 {
 			//90hz
-			qcom,mdss-dsi-panel-phy-timings = [00 1D 08 07 17 22 07
-						08 08 02 04 00 19 0D];
+			qcom,mdss-dsi-panel-phy-timings = [00 23 09 09 1A 24 09
+						09 09 02 04 00 1D 0E];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,mdss-mdp-transfer-time-us-min = <6900>;
