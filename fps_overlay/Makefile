@@ -100,6 +100,7 @@ FPS_BASE_DTB += fp6.dtb
 FPS_BOARDS += fp6-sku-600-overlay.dtbo
 FPS_BOARDS += fp6-sku-603-overlay.dtbo
 FPS_BOARDS += fp6-sku-604-overlay.dtbo
+FPS_BOARDS += fp6-sku-605-overlay.dtbo
 
 fps-dtb-$(CONFIG_ARCH_FPSPRING) += $(call add-overlays, $(FPS_BOARDS),$(FPS_BASE_DTB))
 
