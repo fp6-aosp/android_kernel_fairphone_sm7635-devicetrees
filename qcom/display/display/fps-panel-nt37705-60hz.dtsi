@@ -19,9 +19,9 @@
 	qcom,poms-align-panel-vsync;
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
-			//120hz
-			qcom,mdss-dsi-panel-phy-timings = [00 2D 0C 0C 1D 1B 0C
-						0D 0B 02 04 00 25 11];
+			//60hz
+			qcom,mdss-dsi-panel-phy-timings = [00 19 06 06 15 1F 07
+						06 07 02 04 00 16 0B];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			//qcom,mdss-mdp-transfer-time-us = <7000>;
@@ -30,9 +30,9 @@
 			qcom,mdss-mdp-transfer-time-us-max = <7900>;
 		};
 		timing@1 {
-			//60hz
-			qcom,mdss-dsi-panel-phy-timings = [00 19 06 06 15 1F 07
-						06 07 02 04 00 16 0B];
+			//120hz
+			qcom,mdss-dsi-panel-phy-timings = [00 2D 0C 0C 1D 1B 0C
+						0D 0B 02 04 00 25 11];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,mdss-mdp-transfer-time-us-min = <6900>;
