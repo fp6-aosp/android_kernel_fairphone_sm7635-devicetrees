@@ -21,6 +21,19 @@
 	status = "disabled";
 };
 
+&soc {
+	cdc_hac_pa_gpio: msm_cdc_pinctrl_hac_pa_gpio {
+		compatible = "qcom,msm-cdc-pinctrl";
+		pinctrl-names = "aud_active", "aud_sleep";
+		pinctrl-0 = <&hac_pa_active>;
+		pinctrl-1 = <&hac_pa_sleep>;
+	};
+};
+
+&wcd9378_codec {
+	qcom,wcd-hac-pa-gpios = <&cdc_hac_pa_gpio>;
+};
+
 &spf_core_platform  {
 	cdc_sen_mi2s_gpios: sen_mi2s_pinctrl {
 		status = "okay";
@@ -74,8 +87,39 @@
 		"VA SWR_INPUT", "VA_SWR_CLK",
 		"VA_AIF1 CAP", "VA_SWR_CLK",
 		"VA_AIF2 CAP", "VA_SWR_CLK",
-		"VA_AIF3 CAP", "VA_SWR_CLK";
+		"VA_AIF3 CAP", "VA_SWR_CLK",
+		"EAR","HAC_RX";
 
+};
+
+&tlmm {
+	/* hac pa enable pins */
+	hac_pa_active:hac_pa_active {
+	    mux {
+			pins = "gpio82";
+			function = "gpio";
+	    };
+
+	    config {
+			pins = "gpio82";
+			drive-strength = <16>;
+			bias-disable;
+			output-high;
+	    };
+	};
+	hac_pa_sleep: hac_pa_sleep {
+	    mux {
+			pins = "gpio82";
+			function = "gpio";
+	    };
+
+	    config {
+			pins = "gpio82";
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+	    };
+	};
 };
 
 /*aw882xx I2c is used GPIO_15 & GPIO_16 should define as I2C in QUPAC_Access.c * QUP_0 SE3  qup0_se3_l0 qup0_se3_l1*/
@@ -109,19 +153,7 @@
     rename-flag = <1>;
     status = "okay";
     };
-
-    aw882xx_smartpa@36 {
-    compatible = "awinic,aw882xx_smartpa";
-    reg = <0x36>;
-    pa-dvdd-supply = <&L10B>;
-    sync-load = <1>;
-    sound-channel = <2>;
-    aw-re-min = <4000>;
-    aw-re-max= <30000>;
-    aw-cali-mode = "none";
-    rename-flag = <1>;
-    status = "okay";
-    };
+    
 };
 
 
