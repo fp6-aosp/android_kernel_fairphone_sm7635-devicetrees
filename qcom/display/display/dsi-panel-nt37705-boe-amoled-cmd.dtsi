@@ -1091,7 +1091,7 @@
 				qcom,mdss-dsi-v-top-border = <0>;
 				qcom,mdss-dsi-v-bottom-border = <0>;
 				qcom,mdss-dsi-panel-jitter = <0x4 0x1>;
-				qcom,mdss-dsi-panel-framerate = <1>;
+				qcom,mdss-dsi-panel-framerate = <10>;
 				qcom,mdss-dsi-on-command = [
 					//## Page 0
 					// Skip mode setting
@@ -1103,7 +1103,7 @@
 
 					// Skip frame Seq1
 					39 00 00 40 00 00 02 6F 1C
-					39 00 00 40 00 00 11 BA 01 01 01 01 77 00 00 00 77 00 00 00 00 00 00 00
+					39 00 00 40 00 00 11 BA 01 01 01 01 0B 00 00 00 0B 00 00 00 00 00 00 00
 
 					// Skip frame Seq2
 					39 00 00 40 00 00 02 6F 2C
@@ -1256,10 +1256,10 @@
 					// Normal Display
 					39 00 00 40 00 00 02 2F 02
 
-					// Setting 1hz
+					// Setting 10hz
 					39 00 00 40 00 00 02 5A 01
 					39 00 00 40 00 00 02 2F 30
-					39 00 00 40 00 00 02 6D 77
+					39 00 00 40 00 00 02 6D 06
 
 					// Normal Display
 					39 00 00 00 78 00 02 11 00
@@ -1290,7 +1290,7 @@
 					39 00 00 40 00 00 02 B2 03
 				];
 
-				t2m,mdss-dsi-set-1hz-mode-command = [
+				t2m,mdss-dsi-set-10hz-mode-command = [
 					// Skip mode setting
 					39 00 00 40 00 00 06 F0 55 AA 52 08 00
 					// LP_MODE=1
@@ -1298,11 +1298,11 @@
 					39 00 00 40 00 00 02 BA 18
 					// Skip frame Seq1
 					39 00 00 40 00 00 02 6F 1C
-					39 00 00 40 00 00 11 BA 01 01 01 01 77 00 00 00 77 00 00 00 00 00 00 00
+					39 00 00 40 00 00 11 BA 01 01 01 01 0B 00 00 00 0B 00 00 00 00 00 00 00
 					39 00 00 40 00 00 02 2F 02
 					39 00 00 40 00 00 02 5A 01
 					39 00 00 40 00 00 02 2F 30
-					39 00 00 40 00 00 02 6D 77
+					39 00 00 40 00 00 02 6D 06
 				];
 
 				qcom,mdss-dsi-off-command = [
@@ -1319,11 +1319,11 @@
 					39 00 00 40 00 00 02 BA 18
 					// Skip frame Seq1
 					39 00 00 40 00 00 02 6F 1C
-					39 00 00 40 00 00 11 BA 01 01 01 01 77 00 00 00 77 00 00 00 00 00 00 00
+					39 00 00 40 00 00 11 BA 01 01 01 01 0B 00 00 00 0B 00 00 00 00 00 00 00
 					39 00 00 40 00 00 02 2F 02
 					39 00 00 40 00 00 02 5A 01
 					39 00 00 40 00 00 02 2F 30
-					39 00 00 40 00 00 02 6D 77
+					39 00 00 40 00 00 02 6D 06
 				];
 
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
