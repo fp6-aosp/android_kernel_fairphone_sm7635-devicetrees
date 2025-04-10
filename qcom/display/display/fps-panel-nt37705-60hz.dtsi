@@ -60,9 +60,9 @@
 			qcom,mdss-mdp-transfer-time-us-max = <7900>;
 		};
 		timing@4 {
-			//1hz
-			qcom,mdss-dsi-panel-phy-timings = [03 04 00 00 0D 18 01
-						00 00 02 04 00 05 05];
+			//10hz
+			qcom,mdss-dsi-panel-phy-timings = [01 08 01 01 0E 1B 01
+						01 02 02 04 00 08 06];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,mdss-mdp-transfer-time-us-min = <6900>;
