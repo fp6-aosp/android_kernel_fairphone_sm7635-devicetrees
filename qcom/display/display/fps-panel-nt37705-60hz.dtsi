@@ -23,8 +23,8 @@
 	qcom,mdss-dsi-display-timings {
 		timing@0 {
 			//120hz
-			qcom,mdss-dsi-panel-phy-timings = [00 26 0A 0A 1B 19 0A
-						0A 0A 02 04 00 20 0F];
+			qcom,mdss-dsi-panel-phy-timings = [00 29 0B 0B 1B 1A 0B
+						0B 0A 02 04 00 22 10];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			//qcom,mdss-mdp-transfer-time-us = <7000>;
@@ -34,8 +34,8 @@
 		};
 		timing@1 {
 			//60hz
-			qcom,mdss-dsi-panel-phy-timings = [00 15 05 05 14 1F 05
-						05 06 02 04 00 13 0A];
+			qcom,mdss-dsi-panel-phy-timings = [00 16 06 05 14 1F 06
+						06 06 02 04 00 14 0B];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,mdss-mdp-transfer-time-us-min = <6900>;
@@ -43,8 +43,8 @@
 		};
 		timing@2 {
 			//90hz
-			qcom,mdss-dsi-panel-phy-timings = [00 1D 08 07 17 22 07
-						08 08 02 04 00 19 0D];
+			qcom,mdss-dsi-panel-phy-timings = [00 20 08 08 18 23 08
+						08 08 02 04 00 1B 0D];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,mdss-mdp-transfer-time-us-min = <6900>;
@@ -52,8 +52,8 @@
 		};
 		timing@3 {
 			//30hz
-			qcom,mdss-dsi-panel-phy-timings = [00 0C 03 03 10 1D 03
-						03 03 02 04 00 0B 08];
+			qcom,mdss-dsi-panel-phy-timings = [00 0D 03 03 10 1C 04
+						03 02 02 04 00 0C 08];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
 			qcom,mdss-mdp-transfer-time-us-min = <6900>;

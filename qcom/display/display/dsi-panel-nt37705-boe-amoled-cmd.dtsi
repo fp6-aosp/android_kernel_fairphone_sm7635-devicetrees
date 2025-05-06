@@ -6,7 +6,7 @@
 		qcom,mdss-dsi-panel-physical-type = "oled";
 		qcom,mdss-dsi-virtual-channel-id = <0>;
 		qcom,mdss-dsi-stream = <0>;
-		qcom,mdss-dsi-bpp = <24>;
+		qcom,mdss-dsi-bpp = <30>;
 		qcom,mdss-dsi-color-order = "rgb_swap_rgb";
 		qcom,mdss-dsi-underflow-color = <0xff>;
 		qcom,mdss-dsi-border-color = <0>;
@@ -224,7 +224,7 @@
 					// DSC setting
 					39 00 00 40 00 00 02 03 01
 					39 00 00 40 00 00 03 90 03 03
-					39 00 00 40 00 00 13 91 89 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
+					39 00 00 40 00 00 13 91 AB 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
 
 					// Normal Display
 					39 00 00 40 00 00 02 2F 02
@@ -286,7 +286,7 @@
 				qcom,mdss-dsc-slice-height = <12>;
 				qcom,mdss-dsc-slice-width = <558>;
 				qcom,mdss-dsc-slice-per-pkt = <2>;
-				qcom,mdss-dsc-bit-per-component = <8>;
+				qcom,mdss-dsc-bit-per-component = <10>;
 				qcom,mdss-dsc-bit-per-pixel = <8>;
 				qcom,mdss-dsc-block-prediction-enable;
 			};
@@ -467,7 +467,7 @@
 					// DSC setting
 					39 00 00 40 00 00 02 03 01
 					39 00 00 40 00 00 03 90 03 03
-					39 00 00 40 00 00 13 91 89 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
+					39 00 00 40 00 00 13 91 AB 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
 
 					// Normal Display
 					39 00 00 40 00 00 02 2F 02
@@ -556,7 +556,7 @@
 				qcom,mdss-dsc-slice-height = <12>;
 				qcom,mdss-dsc-slice-width = <558>;
 				qcom,mdss-dsc-slice-per-pkt = <2>;
-				qcom,mdss-dsc-bit-per-component = <8>;
+				qcom,mdss-dsc-bit-per-component = <10>;
 				qcom,mdss-dsc-bit-per-pixel = <8>;
 				qcom,mdss-dsc-block-prediction-enable;
 			};
@@ -737,7 +737,7 @@
 					// DSC setting
 					39 00 00 40 00 00 02 03 01
 					39 00 00 40 00 00 03 90 03 03
-					39 00 00 40 00 00 13 91 89 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
+					39 00 00 40 00 00 13 91 AB 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
 
 					// Normal Display
 					//39 00 00 40 00 00 02 2F 02
@@ -797,7 +797,7 @@
 				qcom,mdss-dsc-slice-height = <12>;
 				qcom,mdss-dsc-slice-width = <558>;
 				qcom,mdss-dsc-slice-per-pkt = <2>;
-				qcom,mdss-dsc-bit-per-component = <8>;
+				qcom,mdss-dsc-bit-per-component = <10>;
 				qcom,mdss-dsc-bit-per-pixel = <8>;
 				qcom,mdss-dsc-block-prediction-enable;
 			};
@@ -979,7 +979,7 @@
 					// DSC setting
 					39 00 00 40 00 00 02 03 01
 					39 00 00 40 00 00 03 90 03 03
-					39 00 00 40 00 00 13 91 89 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
+					39 00 00 40 00 00 13 91 AB 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
 
 					// Normal Display
 					39 00 00 40 00 00 02 2F 02
@@ -1069,7 +1069,7 @@
 				qcom,mdss-dsc-slice-height = <12>;
 				qcom,mdss-dsc-slice-width = <558>;
 				qcom,mdss-dsc-slice-per-pkt = <2>;
-				qcom,mdss-dsc-bit-per-component = <8>;
+				qcom,mdss-dsc-bit-per-component = <10>;
 				qcom,mdss-dsc-bit-per-pixel = <8>;
 				qcom,mdss-dsc-block-prediction-enable;
 			};
@@ -1251,7 +1251,7 @@
 					// DSC setting
 					39 00 00 40 00 00 02 03 01
 					39 00 00 40 00 00 03 90 03 03
-					39 00 00 40 00 00 13 91 89 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
+					39 00 00 40 00 00 13 91 AB 28 00 0C D2 00 02 2F 01 18 00 07 09 75 08 34 10 F0
 
 					// Normal Display
 					39 00 00 40 00 00 02 2F 02
@@ -1340,7 +1340,7 @@
 				qcom,mdss-dsc-slice-height = <12>;
 				qcom,mdss-dsc-slice-width = <558>;
 				qcom,mdss-dsc-slice-per-pkt = <2>;
-				qcom,mdss-dsc-bit-per-component = <8>;
+				qcom,mdss-dsc-bit-per-component = <10>;
 				qcom,mdss-dsc-bit-per-pixel = <8>;
 				qcom,mdss-dsc-block-prediction-enable;
 			};
