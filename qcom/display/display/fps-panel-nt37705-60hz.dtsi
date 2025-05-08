@@ -38,8 +38,8 @@
 						06 06 02 04 00 14 0B];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
-			qcom,mdss-mdp-transfer-time-us-min = <6900>;
-			qcom,mdss-mdp-transfer-time-us-max = <7900>;
+			qcom,mdss-mdp-transfer-time-us-min = <7900>;
+			qcom,mdss-mdp-transfer-time-us-max = <8900>;
 		};
 		timing@2 {
 			//90hz
@@ -56,8 +56,8 @@
 						03 02 02 04 00 0C 08];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
-			qcom,mdss-mdp-transfer-time-us-min = <6900>;
-			qcom,mdss-mdp-transfer-time-us-max = <7900>;
+			qcom,mdss-mdp-transfer-time-us-min = <7900>;
+			qcom,mdss-mdp-transfer-time-us-max = <8900>;
 		};
 		timing@4 {
 			//10hz
@@ -65,8 +65,8 @@
 						01 02 02 04 00 08 06];
 			qcom,display-topology = <1 1 1>;
 			qcom,default-topology-index = <0>;
-			qcom,mdss-mdp-transfer-time-us-min = <6900>;
-			qcom,mdss-mdp-transfer-time-us-max = <7900>;
+			qcom,mdss-mdp-transfer-time-us-min = <7900>;
+			qcom,mdss-mdp-transfer-time-us-max = <8900>;
 		};
 	};
 };
