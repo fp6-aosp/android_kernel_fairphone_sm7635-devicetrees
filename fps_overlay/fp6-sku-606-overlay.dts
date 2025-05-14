@@ -29,3 +29,23 @@
 &emkit_info {
 	oem,sku = <606>;
 };
+
+/* fps audio 3 PA dtsi, if sku have 3 PA, please add this, like sku 605. if only have 2 PA, delete this. */
+/*aw882xx I2c is used GPIO_15 & GPIO_16 should define as I2C in QUPAC_Access.c * QUP_0 SE3  qup0_se3_l0 qup0_se3_l1*/
+&qupv3_se3_i2c {
+    status = "ok";
+
+    aw882xx_smartpa@36 {
+    compatible = "awinic,aw882xx_smartpa";
+    reg = <0x36>;
+    aw882xx_hac = <1>;
+    pa-dvdd-supply = <&L10B>;
+    sync-load = <1>;
+    sound-channel = <2>;
+    aw-re-min = <4000>;
+    aw-re-max= <30000>;
+    aw-cali-mode = "none";
+    rename-flag = <1>;
+    status = "okay";
+    };
+};
