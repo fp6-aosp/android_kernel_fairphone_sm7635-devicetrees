@@ -263,20 +263,53 @@
 					39 00 00 40 00 00 02 B2 03
 				];
 
+				t2m,mdss-dsi-set-120hz-mode-command = [
+					// Skip mode setting
+					39 00 00 40 00 00 06 F0 55 AA 52 08 00
+
+					// LP_MODE=1
+					39 00 00 40 00 00 02 6F 1B
+					39 00 00 40 00 00 02 BA 18
+
+					// Skip frame Seq1
+					39 00 00 40 00 00 02 6F 1C
+					39 00 00 40 00 00 11 BA 01 01 01 01 00 00 00 00 00 00 00 00 00 00 00 00
+					39 00 00 40 00 00 02 2F 02
+					39 00 00 40 00 00 02 5A 01
+					39 00 00 40 00 00 02 2F 30
+					39 00 00 40 00 00 02 6D 00
+				];
+
 				qcom,mdss-dsi-off-command = [
-					//29 01 00 00 01 00 02 FE 00
-					39 00 00 00 01 00 02 28 00
-					39 00 00 00 64 00 02 10 00
+					39 00 00 00 14 00 02 28 00
+					39 00 00 00 78 00 02 10 00
 				];
 
 				qcom,mdss-dsi-timing-switch-command = [
+					// Skip mode setting
+					39 00 00 40 00 00 06 F0 55 AA 52 08 00
+
+					// LP_MODE=1
+					39 00 00 40 00 00 02 6F 1B
+					39 00 00 40 00 00 02 BA 18
+
+					// Skip frame Seq1
+					39 00 00 40 00 00 02 6F 1C
+					39 00 00 40 00 00 11 BA 01 01 01 01 00 00 00 00 00 00 00 00 00 00 00 00
+					// Normal Display
 					39 00 00 40 00 00 02 2F 02
+
+					// Setting 120hz
+					39 00 00 40 00 00 02 5A 01
+					39 00 00 40 00 00 02 2F 30
+					39 00 00 40 00 00 02 6D 00
 				];
 
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
-				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-lower-bl1290-mode-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-higher-bl1290-mode-command-state = "dsi_hs_mode";
+				t2m,mdss-dsi-set-120hz-mode-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-timing-switch-command-state = "dsi_hs_mode";
 
 				qcom,mdss-dsi-h-sync-pulse = <0>;
@@ -522,9 +555,8 @@
 				];
 
 				qcom,mdss-dsi-off-command = [
-					//29 01 00 00 01 00 02 FE 00
-					39 00 00 00 01 00 02 28 00
-					39 00 00 00 64 00 02 10 00
+					39 00 00 00 14 00 02 28 00
+					39 00 00 00 78 00 02 10 00
 				];
 
 				qcom,mdss-dsi-timing-switch-command = [
@@ -543,7 +575,7 @@
 				];
 
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
-				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-lower-bl1290-mode-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-higher-bl1290-mode-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-set-60hz-mode-command-state = "dsi_hs_mode";
@@ -775,9 +807,8 @@
 				];
 
 				qcom,mdss-dsi-off-command = [
-					//29 01 00 00 01 00 02 FE 00
-					39 00 00 00 01 00 02 28 00
-					39 00 00 00 64 00 02 10 00
+					39 00 00 00 14 00 02 28 00
+					39 00 00 00 78 00 02 10 00
 				];
 
 				qcom,mdss-dsi-timing-switch-command = [
@@ -785,7 +816,7 @@
 				];
 
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
-				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-lower-bl1290-mode-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-higher-bl1290-mode-command-state = "dsi_hs_mode";
 				qcom,mdss-dsi-timing-switch-command-state = "dsi_hs_mode";
@@ -1035,9 +1066,8 @@
 				];
 
 				qcom,mdss-dsi-off-command = [
-					//29 01 00 00 01 00 02 FE 00
-					39 00 00 00 01 00 02 28 00
-					39 00 00 00 64 00 02 10 00
+					39 00 00 00 14 00 02 28 00
+					39 00 00 00 78 00 02 10 00
 				];
 
 				qcom,mdss-dsi-timing-switch-command = [
@@ -1056,7 +1086,7 @@
 				];
 
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
-				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-lower-bl1290-mode-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-higher-bl1290-mode-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-set-30hz-mode-command-state = "dsi_hs_mode";
@@ -1306,9 +1336,8 @@
 				];
 
 				qcom,mdss-dsi-off-command = [
-					//29 01 00 00 01 00 02 FE 00
-					39 00 00 00 01 00 02 28 00
-					39 00 00 00 64 00 02 10 00
+					39 00 00 00 14 00 02 28 00
+					39 00 00 00 78 00 02 10 00
 				];
 
 				qcom,mdss-dsi-timing-switch-command = [
@@ -1327,7 +1356,7 @@
 				];
 
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
-				//qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+				qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-lower-bl1290-mode-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-dbv-higher-bl1290-mode-command-state = "dsi_hs_mode";
 				t2m,mdss-dsi-set-1hz-mode-command-state = "dsi_hs_mode";
