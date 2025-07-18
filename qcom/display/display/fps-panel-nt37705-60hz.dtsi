@@ -17,7 +17,7 @@
 &nt37705_boe_amoled_cmd {
 	qcom,dsi-select-clocks = "pll_byte_clk0", "pll_dsi_clk0";
 	qcom,poms-align-panel-vsync;
-	qcom,dsi-supported-dfps-list = <120 90 60 30 1>;
+	qcom,dsi-supported-dfps-list = <120 90 60 30 10>;
 	qcom,mdss-dsi-pan-enable-dynamic-fps;
 	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_clk_mode";
 	qcom,mdss-dsi-display-timings {
