@@ -644,7 +644,7 @@
 		interrupt-controller;
 		#interrupt-cells = <2>;
 		wakeup-parent = <&pdc>;
-		qcom,gpios-reserved = <13 27 28 29 30 63 64>;
+		qcom,gpios-reserved = <8 9 10 11 13 30 63 64>;
 	};
 
 	show_resume_irqs@17100000 {
@@ -2036,7 +2036,8 @@
 
 	qcom,rmtfs_sharedmem@0 {
 		compatible = "qcom,sharedmem-uio";
-		reg = <0x0 0x280000>;
+		/* FPS-51. Enlarge efs size */
+		reg = <0x0 0x600000>;
 		reg-names = "rmtfs";
 		qcom,client-id = <0x00000001>;
 	};
@@ -2498,12 +2499,6 @@
 			qcom,glinkpkt-dev-name = "qmc_cma";
 			qcom,glinkpkt-enable-ch-close;
 		};
-
-		qcom,glinkpkt-xpan_control {
-			qcom,glinkpkt-edge = "adsp";
-			qcom,glinkpkt-ch-name = "bt_cp_ctrl";
-			qcom,glinkpkt-dev-name = "bt_cp_ctrl";
-		};
 	};
 
 	qcom,glink {
@@ -2790,6 +2785,29 @@
 		ext-region = <&chipinfo_mem>;
 		ext-label = <0x7>;
 	};
+
+	/* Focaltech FP */
+	focalfp_ft9362 {
+		compatible = "focaltech,fp";
+		interrupt-parent = <&tlmm>;
+		status = "okay";
+		interrupts = <75 IRQ_TYPE_EDGE_RISING>;
+
+		focaltech_fp,reset-gpio = <&tlmm 74 0>;
+		focaltech_fp,irq-gpio = <&tlmm 75 0>;
+		focaltech_fp,vdd-gpio = <&tlmm 29 0>;
+
+		pinctrl-names ="fpsensor_finger_rst_low",
+				"fpsensor_finger_rst_high",
+				"fpsensor_eint_as_int",
+				"fpsensor_finger_power_low",
+				"fpsensor_finger_power_high";
+		pinctrl-0 = <&fingerprint_pins_rst_output0>;
+		pinctrl-1 = <&fingerprint_pins_rst_output1>;
+		pinctrl-2 = <&fingerprint_pins_eint_as_int>;
+		pinctrl-3 = <&fingerprint_pins_power_output0>;
+		pinctrl-4 = <&fingerprint_pins_power_output1>;
+	};
 };
 
 &firmware {
@@ -2913,6 +2931,7 @@
 #include "volcano-pcie.dtsi"
 #include "ipcc-test.dtsi"
 #include "msm-arm-smmu-volcano.dtsi"
+#include "fps-pm8008.dtsi"
 #include "volcano-pmic-overlay.dtsi"
 #include "volcano-debug.dtsi"
 #include "volcano-coresight.dtsi"
