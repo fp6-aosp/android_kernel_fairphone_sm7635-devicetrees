@@ -33,6 +33,11 @@
 		pmiv0104_eusb2_repeater: eusb2-repeater@fd00 {
 			compatible = "qcom,pmic-eusb2-repeater";
 			reg = <0xfd00>;
+			qcom,param-override-seq =
+				<0x08 0x51     /* override 0xFD51 */
+				 0x05 0x52     /* override 0xFD52 */
+				 0x07 0x53     /* override 0xFD53 */
+				 0x06 0x57>;   /* override 0xFD57 */
 		};
 
 		pmiv0104_vib: qcom,vibrator@df00 {

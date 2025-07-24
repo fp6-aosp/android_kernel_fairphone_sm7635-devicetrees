@@ -62,33 +62,167 @@
 	pinctrl-0 = <&sdc2_on>;
 	pinctrl-1 = <&sdc2_off>;
 
-	cd-gpios = <&tlmm 65 GPIO_ACTIVE_LOW>;
+	cd-gpios = <&tlmm 65 GPIO_ACTIVE_HIGH>;
 };
 
 &qupv3_se0_i2c {
-	#address-cells = <1>;
-	#size-cells = <0>;
+	status = "disabled";
+};
+
+&qupv3_se0_spi {
 
 	status = "ok";
-	qcom,i2c-touch-active = "focaltech,fts_ts";
+/*
+	qcom,touch-active = "goodix,brl-b";
 
-	focaltech@38 {
-		compatible = "focaltech,fts_ts";
-		reg = <0x38>;
+	goodix-berlin@0 {
+		compatible = "goodix,brl-b";
+		reg = <0>;
+		spi-max-frequency = <1000000>;
+		goodix,avdd-name = "avdd";		//3.0v
+		goodix,iovdd-name = "iovdd";	//1.8v
+		avdd-supply = <&L22B>;
+		iovdd-supply = <&L9B>;
+		interrupt-parent = <&tlmm>;
+		//interrupts = <19 0x2008>;
+		goodix,reset-gpio = <&tlmm 20 0x00>;
+		goodix,irq-gpio = <&tlmm 19 0x0>;
+		goodix,irq-flags = <1>; // 1:trigger rising, 2:trigger falling;
+
+		goodix,panel-max-x = <1116>;
+		goodix,panel-max-y = <2484>;
+		goodix,panel-max-w = <255>;
+		goodix,panel-max-p = <4096>; // max pressure that pen device supported
+		//panel = <&nt37705_boe_amoled_cmd>;
+
+		// optional properties
+		//goodix,pen-enable; // support active stylus device
+		//goodix.sleep-enable; // enter sleep mode
+		//goodix,firmware-name = "goodix_firmware.bin";
+		//goodix,config-name = "goodix_cfg_group.bin";
+	};
+*/
+
+	qcom,touch-active = "eswin,eph861x";
+	eswin_eph861x@0 {
+		reg = <0>;
+		pinctrl-names = "ts_active", "ts_suspend";
+		pinctrl-0 = <&ts_irq_active >;
+		pinctrl-1 = <&ts_irq_suspend >;
+
+		avdd-supply = <&L22B>;
+		iovdd-supply = <&L9B>; // AVDD 3.3V
 
 		interrupt-parent = <&tlmm>;
-		interrupts = <19 0x2008>;
-		focaltech,reset-gpio = <&tlmm 20 0x00>;
-		focaltech,irq-gpio = <&tlmm 19 0x2008>;
-		focaltech,display-coords = <0 0 1080 2408>;
-		focaltech,max-touch-number = <10>;
-		focaltech,ic-type = <0x8726081C>;
-		focaltech,touch-type = "primary";
 
-		pinctrl-names = "pmx_ts_active","pmx_ts_suspend","pmx_ts_release";
-		pinctrl-0 = <&ts_active>;
-		pinctrl-1 = <&ts_int_suspend &ts_reset_suspend>;
-		pinctrl-2 = <&ts_release>;
+		compatible = "eswin,eph861x";
+		spi-max-frequency = <2000000>; //6000000 decide by project
+		bits-per-word = <8>;
+		spi-cpol;
+		spi-cpha;
+		eswin,spi-mode = <3>; // fixed
+		eswin,regulator_dvdd = "iovdd";
+		eswin,regulator_avdd = "avdd";
+		eswin,power-delay-ms = <200>;
+		eswin,irq-gpio = <&tlmm 19 0x0>; // IRQF_ONESHOT | IRQF_TRIGGER_FALLING | IRQF_NO_SUSPEND  
+		eswin,irq-on-state = <0>;
+		eswin,reset-gpio =  <&tlmm 20 0x00>;
+		eswin,reset-on-state = <0>;
+		eswin,reset-active-ms = <20>;
+		eswin,reset-delay-ms = <200>;
+		eswin,spi-byte-delay-us = <10>;
+		eswin,spi-block-delay-us = <10>;
+		eswin,suspend-mode = <0x02>;
+		eswin,fw_name = "EPH86XX_fw.bin";
+		// eswin,device_settings_name = "EPH86XX_device_settings.bin";
+		eswin,input_name = "ESWIN EPH86XX Touchscreen";
+		eswin,panel-invert-x = <1>;
+		eswin,panel-invert-y = <0>;
+		eswin,panel-max-x = <1116>;
+		eswin,panel-max-y = <2484>;
+		//controller-data{
+		//	cs-clock-delay = <100>;
+		//};
+	};
+
+};
+
+&tlmm {
+	gpio49_input_pull_up: gpio49_input_pull_up {
+		mux {
+			 pins = "gpio80";
+			 function = "gpio";
+		};
+
+		config {
+			pins = "gpio80";
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+
+
+	ts_irq_active: ts_irq_active {
+		mux {
+			 pins = "gpio19";
+			 function = "gpio";
+		};
+
+		config {
+			pins = "gpio19";
+			drive-strength = <2>;
+			bias-disable;
+			input-enable;
+		};
+	};
+
+	ts_irq_suspend: ts_irq_suspend {
+		mux {
+			 pins = "gpio19";
+			 function = "gpio";
+		};
+
+		config {
+			pins = "gpio19";
+			drive-strength = <2>;
+			bias-disable;
+			input-enable;
+		};
+	};
+
+
+};
+
+&qupv3_se7_i2c {
+	status = "ok";
+	haptic_hv@5A {
+		compatible = "awinic,haptic_hv";
+		reg = <0x5A>;
+		irq-gpio = <&tlmm 80 0>;
+		reset-gpio = <&tlmm 78 0>;
+		pinctrl-names = "irq_active";
+		pinctrl-0 = <&gpio49_input_pull_up>;
+		f0_pre = <1700>;
+		mode = /bits/ 8 <5>;
+		aw8693x_f0_cali_percent = /bits/ 8 <15>;
+		aw8693x_gain_bypass = /bits/ 8 <1>;
+		aw8693x_uvlo_vol_default = /bits/ 8 <0>;
+		aw8693x_cont_smart_loop = /bits/ 8 <0>;
+		aw8693x_cont_drv1_lvl = /bits/ 8 <0x7F>;
+		aw8693x_cont_lra_vrms = <1000>;
+		aw8693x_cont_drv1_time = /bits/ 8 <0x04>;
+		aw8693x_cont_drv2_time = /bits/ 8 <0x14>;
+		aw8693x_cont_track_margin = /bits/ 8 <0x0F>;
+		aw8693x_cont_brk_gain = /bits/ 8 <0x08>;
+		aw8693x_cont_brk_time = /bits/ 8 <0x08>;
+		aw8693x_duration_time = /bits/ 8 <20 30 60>;
+		aw8693x_d2s_gain = /bits/ 8 <0x04>;
+		aw8693x_trig_config = /bits/ 8 <0 0 0 1 0 2 0 0 0 0 0 1 0 2 0 0 0 0 0 1 0 2 0 0>;
+		aw8693x_bst_vol_default = <8500>;
+		aw8693x_is_enabled_track_en;
+		/* aw8693x_is_enabled_auto_bst; */
+		/* aw8693x_is_enabled_one_wire; */
 	};
 };
 
@@ -142,3 +276,4 @@
 	periph-5cb-supply = <&L11F>;
 	periph-5cc-supply = <&L12F_LEVEL>;
 };
+
