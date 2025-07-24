@@ -109,7 +109,7 @@ fps-dtb-$(CONFIG_ARCH_FPSPRING) += $(call add-overlays, $(FPS_BOARDS),$(FPS_BASE
 
 fps-overlays-dtb-$(CONFIG_ARCH_FPSPRING) += $(FPS_BOARDS) $(FPS_BASE_DTB)
 
-dtb-y += $(fps-dtb-y)
+dtb-y := $(fps-dtb-y)
 
 always-y	:= $(dtb-y)
 subdir-y	:= $(dts-dirs)
