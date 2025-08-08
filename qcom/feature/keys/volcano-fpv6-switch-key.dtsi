@@ -17,14 +17,14 @@
 &soc {
 	gpio_keys {
 		compatible = "gpio-keys";
-		label = "gpio-keys";
+		label = "fpv6_switch_key";
 		pinctrl-names = "default";
 		pinctrl-0 = <&fpv6_switch_key_active>;
 
 		fpv6_switch {
 			label = "fpv6_switch";
-			gpios = <&tlmm 107 GPIO_ACTIVE_LOW>;
-			linux,input-type = <0x05>; /* EV_SW */
+			gpios = <&tlmm 107 GPIO_ACTIVE_HIGH>;
+			linux,input-type = <0x01>; /* EV_KEY */
 			linux,code = <0xf>;
 			gpio-key,wakeup;
 			debounce-interval = <15>;
