@@ -92,7 +92,6 @@
     sound-channel = <0>;
     aw-re-min = <4000>;
     aw-re-max= <30000>;
-    aw-cali-mode = "none";
     rename-flag = <1>;
     status = "okay";
     };
@@ -105,7 +104,6 @@
     sound-channel = <1>;
     aw-re-min = <4000>;
     aw-re-max= <30000>;
-    aw-cali-mode = "none";
     rename-flag = <1>;
     status = "okay";
     };
