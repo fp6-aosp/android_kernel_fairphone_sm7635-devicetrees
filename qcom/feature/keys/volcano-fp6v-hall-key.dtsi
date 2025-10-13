@@ -23,8 +23,8 @@
        hall-gpio = <&tlmm 70 1>;
        interrupt-parent = <&tlmm>;
        interrupts = <70 0x03>;
-       linux,keycode_up =<586>;
-       linux,keycode_down =<587>;
+       linux,keycode_up =<252>;
+       linux,keycode_down =<253>;
     };
      
 };
