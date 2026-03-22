@@ -29,6 +29,7 @@
 			gpio-key,wakeup;
 			debounce-interval = <15>;
 			linux,can-disable;
+			oneshot-on-change;
 		};
 	};
 };
